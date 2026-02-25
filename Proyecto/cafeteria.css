@@ -47,6 +47,19 @@ table {
 	border-spacing: 0;
 }
 /*-------------------CODE-----------------------*/
+:root{
+    --red-color: #d03b40;
+    --beige-color: #ded6c0;
+    --white-color: #f5f0ed;
+    --gray-color: #241d1b;
+    --light-text: #f5f0ed;
+    --dark-text: #3c3c3b;
+    --font-size-level1: 44px;
+    --font-size-level2: 28px;
+    --font-size-level3: 24px;
+    --font-size-text: 16px;
+    --font-size-buttons: 14px;
+}
 *{
     box-sizing: border-box;
 }
@@ -62,23 +75,38 @@ table {
     height: 100px;
     width: 100%;
     display: flow-root;
-    
-    background-color: rgb(28, 220, 220);
+    padding-top: 15px;
+    padding-left: 15px;
 }
-.encabezado div{
+.navigation, .logo{
     float: left;
     width: 50%;
     height: 100%;
-    
 }
 .logo{
     background-image: url("imagenes/Logo.png");
-    background-color: green;
-
+   
     background-repeat: no-repeat;
     background-position: center top;
     background-size: contain;
 }
 .navigation{
+}
+.burgerButton{
+    width: 65px;
+    height: 65px;
+    margin-left: auto;
+    text-align: center;
     
+    background-color: var(--red-color);
+    border-radius: 10px;
+    padding-top: 6px;
+}
+.burgerLine{
+    display: inline-block;
+    width: 70%;
+    height: 7px;
+
+    background-color: var(--white-color);
+    border-radius: 10px;
 }
