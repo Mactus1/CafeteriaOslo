@@ -88,9 +88,12 @@ table {
    
     background-repeat: no-repeat;
     background-position: center top;
-    background-size: contain;
+    background-size: 152px;
 }
-.navigation{
+@media screen and (min-width: 420px){
+    .logo{
+        background-size: 200px;
+    }
 }
 .burgerButton{
     width: 65px;
