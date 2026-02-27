@@ -5,9 +5,12 @@
         <title>Cafeteria Oslo</title>
         <link rel="stylesheet" href="cafeteria.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="header">
+        <div class="header block">
             <div class="encabezado">
                 <div class="logo"></div>
                 <div class="navigation">
@@ -19,7 +22,7 @@
                 </div>
             </div>
             
-            <div class="headerText">
+            <div class="headerText block">
                 <h1>Recién hecho, <br>todos los días</h1>
                 <div class="section-divider" aria-hidden="true"></div>
                 <p class="description-text headerDescriptionText">
@@ -32,8 +35,8 @@
             </div>
         </div>
         <!--Double color section-->
-        <section class="mediumBlock redMediumBlock">
-            <h2>Ven al Brunch de los domingos</h2>
+        <section class="mediumBlock redMediumBlock block">
+            <h2 class="subtitle">Ven al Brunch de los domingos</h2>
             <p class="description-text">
                 Lorem ipsum dolor sit amet consectetur,
                 adipisicing elit. Quos vero, quod officia
@@ -43,8 +46,8 @@
                 ex!
             </p>
         </section>
-        <section class="mediumBlock beigeMediumBlock">
-            <h2>Celebra tus fiestas con nosotros</h2>
+        <section class="mediumBlock beigeMediumBlock block">
+            <h2 class="subtitle">Celebra tus fiestas con nosotros</h2>
             <p class="description-text">
                 Lorem ipsum dolor sit amet consectetur,
                 adipisicing elit. Quos vero, quod officia
@@ -54,7 +57,26 @@
                 ex!
             </p>
         </section>
-        <!---->
+        <!--Ven a desayunar section-->
+        <section class="breakfastBlock block">
+            <h2 class="subtitle">Ven a desayunar</h2>
+            <div class="section-divider" aria-hidden="true"></div>
+            <p class="description-text">
+                Lorem ipsum dolor sit amet consectetur,
+                adipisicing elit. Quos vero, quod officia
+                sed nemo eius recusandae nobis.
+                Eos dolorem ad distinctio quos, 
+                aliquid ipsa maxime vel quasi. Eligendi, veniam
+                ex!
+            </p>
+            <div class="button">Descubre nuestros productos</div>
+        </section>
+        <!--Products-->
+        <section class="products">
+            <div></div>
+            <h2 class="subtitle"></h2>
+            <p class="description-text"></p>
+        </section>
         <script src="cafeteria.js"></script>
     </body>
 </html>

@@ -60,6 +60,7 @@ table {
     --font-size-text: 16px;
     --font-size-buttons: 14px;
 }
+/*
 @font-face{
     font-family: "Open Sans Regular";
     src: url("Tipografia/OpenSans-Regular.ttf");
@@ -71,6 +72,7 @@ table {
     src: url("Tipografia/OpenSans-Bold.ttf");
     font-style: normal;
 }
+*/
 *{
     box-sizing: border-box;
 }
@@ -125,11 +127,11 @@ table {
     border-radius: 10px;
 }
 h1{
-    font-family: "Open Sans Bold";
+    font-family: "Open Sans", sans-serif;
     text-align: center;
     font-size: var(--font-size-level1);
     color: var(--white-color);
-    margin: 40px auto;
+    margin: 40px auto 0;
     padding: 0 5px;
     font-weight: 700;
 }
@@ -137,14 +139,15 @@ h1{
     height: 2px;
     background-color: var(--white-color);
     width: 100px;
-    margin: 25px auto 25px;
+    margin: 30px auto 25px;
 }
 .description-text{
     font-size: var(--font-size-text);
-    font-family: "Open Sans Regular", sans-serif;
+    font-family: "Open Sans", sans-serif;
     text-align: center;
-    padding:  0 10px;
+    padding:  0 20px;
     line-height: 1.4;
+    margin: 25px 0 0;
 }
 .headerDescriptionText{
     color: var(--white-color);
@@ -152,13 +155,17 @@ h1{
 .mediumBlock{
     height: 55vh;
     background-color: beige;
+}
+/*Avoid the box collapse*/
+.block{
     padding-top: 1px;
 }
-.mediumBlock h2{
-    margin-top: 50px;
+.subtitle{
+    font-family: "Open Sans", sans-serif;
+    margin-top: 30px;
     font-size: var(--font-size-level2);
     text-align: center;
-    font-family: "Open Sans Bold";
+    font-weight: 700;
 }
 .redMediumBlock{
     background-color: var(--red-color);
@@ -168,6 +175,26 @@ h1{
     background-color: var(--beige-color);
     color: var(--red-color);
 }
-.mediumBlock p{
-    margin: 25px 0;
+.breakfastBlock{
+    height: 80vh;
+    background-image: url("imagenes/Fondo2.jpg");
+    color: var(--white-color);
+}
+.button{
+    margin: 40px auto 0;
+    text-align: center;
+    font-size: var(--font-size-button);
+    font-family: "Open Sans", sans-serif;
+    width: 250px;
+    height: auto;
+    padding: 20px;
+    background-color: none;
+    border: 2px solid var(--white-color);
+}
+.button:hover{
+    transition: 0.5s background-color;
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+.products{
+    
 }
