@@ -88,7 +88,7 @@ table {
     height: 100px;
     width: 100%;
     display: flow-root;
-    padding-top: 15px;
+    padding-top: 25px;
     padding-left: 15px;
 }
 .navigation, .logo{
@@ -103,9 +103,9 @@ table {
     background-position: center top;
     background-size: 152px;
 }
-@media screen and (min-width: 420px){
+@media screen and (min-width: 360px){
     .logo{
-        background-size: 200px;
+        background-size: 180px;
     }
 }
 .burgerButton{
@@ -131,7 +131,7 @@ h1{
     text-align: center;
     font-size: var(--font-size-level1);
     color: var(--white-color);
-    margin: 40px auto 0;
+    margin: 100px auto 0;
     padding: 0 5px;
     font-weight: 700;
 }
@@ -139,7 +139,7 @@ h1{
     height: 2px;
     background-color: var(--white-color);
     width: 100px;
-    margin: 30px auto 25px;
+    margin: 35px auto 25px;
 }
 .description-text{
     font-size: var(--font-size-text);
@@ -147,7 +147,7 @@ h1{
     text-align: center;
     padding:  0 20px;
     line-height: 1.4;
-    margin: 25px 0 0;
+    margin: 35px 0 0;
 }
 .headerDescriptionText{
     color: var(--white-color);
@@ -162,10 +162,11 @@ h1{
 }
 .subtitle{
     font-family: "Open Sans", sans-serif;
-    margin-top: 30px;
+    margin-top: 50px;
     font-size: var(--font-size-level2);
     text-align: center;
     font-weight: 700;
+    
 }
 .redMediumBlock{
     background-color: var(--red-color);
@@ -176,7 +177,7 @@ h1{
     color: var(--red-color);
 }
 .breakfastBlock{
-    height: 80vh;
+    height: 70vh;
     background-image: url("imagenes/Fondo2.jpg");
     color: var(--white-color);
 }
@@ -195,6 +196,68 @@ h1{
     transition: 0.5s background-color;
     background-color: rgba(255, 255, 255, 0.1); 
 }
+.productSection{
+    width: 100%;
+    height: auto;
+}
 .products{
+    width: 85%;
+    margin: 40px 0;
+
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+    color: var(--gray-color);
+}
+.productLogo{
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.productLogo1{
+    background-image: url("imagenes/Icono1.png");
+}
+.productLogo2{
+    background-image: url("imagenes/Icono2.png");
+}
+.productLogo3{
+    background-image: url("imagenes/Icono3.png");
+}
+.productLogo4{
+    background-image: url("imagenes/Icono4.png");
+}
+.products .subtitle{
+    margin-top: 15px;
+    text-align: justify;
+}
+.products .description-text{
+    margin-top: 10px;
+    text-align: justify;
+    padding: 0;
+}
+.contactLink{
+    text-decoration: none;
+    color: var(--red-color);
+    font-weight: 770;
+}
+.footer{
+    font-family: "Open Sans", sans-serif;
+    color: var(--white-color);
+    background-color: var(--gray-color);
+    text-align: center;
+}
+.footer p{
+    width: 85%;
+    display: inline-block;
+    margin: 40px 0;
+
+    text-align: justify; 
+    color: var(--white-color);
+    font-size: var(--font-size-text);
+    line-height: 1.5;
     
 }
