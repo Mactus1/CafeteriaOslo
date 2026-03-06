@@ -32,7 +32,7 @@ Proyecto/
 ## Estructura del proyecto (desktop) // Ele ayudando ;b
 
 ```
-CAFETERÍA/
+CafeteríaDesktop/
 ├── imagenes/
 │   ├── Fondo1.jpg
 │   ├── Fondo2.jpg
