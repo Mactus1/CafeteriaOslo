@@ -13,14 +13,22 @@ var headerText = ".headerText"
 //Agregar pantalla mas oscura al oprimir navegacion
 let body = ".body";
 
+//Quitar menu al escoger una opción
+let navButton = "opcionMenu";
+
 function nav(){
     let boton = document.querySelector(botonMenu);
     boton.addEventListener("click", despliegaMenu, false);
+
+    let opcionMenu = document.getElementsByClassName(navButton);
+    for(let i = 0; i < opcionMenu.length; i++){
+        opcionMenu[i].addEventListener("click", despliegaMenu, false);
+    }
+    
 }
 
 
 function despliegaMenu(e){
-    e.preventDefault();
     var despliega = document.querySelector(menuPorDesplegar);
     despliega.classList.toggle(despliegaMenuSwitch);
     console.log("siiii")

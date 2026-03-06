@@ -279,6 +279,18 @@ h1{
     .headerText{
         margin-top: 0px
     }
+
+    .navegacionList a{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+
+        font-family: "Open Sans", sans-serif;
+        color: var(--white-color);
+        font-size: var(--font-size-text);
+
+        text-decoration: none;
+    }
 @media screen and (max-width: 768px){
     .js .navegacionList.despliega-menu{
         z-index: 2;
@@ -287,16 +299,14 @@ h1{
         position: fixed;
         top: 90px;
         left: 0px;
+
         background-color: var(--red-color);
         text-align: center;
-        font-family: "Open Sans", sans-serif;
-        color: var(--white-color);
-        font-size: var(--font-size-text);
     }
-    .navegacionList li{
+    .navegacionList li a{
         padding: 7px 0;
     }
-    .navegacionList li:hover{
+    .navegacionList li a:hover{
         cursor: pointer;
         background-color: var(--gray-color);
     }
@@ -306,7 +316,6 @@ h1{
     .body{
         position: relative;
     }
-    
     .body.despliega-menu::before{
         content: "";
         z-index: 1;
