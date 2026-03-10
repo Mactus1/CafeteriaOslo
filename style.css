@@ -401,6 +401,29 @@ h1 {
     margin: 32px 0;
     color: var(--gray-color);
     text-align: center;
+
+    /* Padding y border-radius para que la sombra del hover tenga espacio */
+    padding: 20px 16px;
+    border-radius: 8px;
+
+    /* Transición suave para el hover: sombra + desplazamiento hacia arriba */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+}
+
+/* Al pasar el cursor, la tarjeta sube ligeramente y aparece una sombra suave.
+   transform: translateY(-6px) la mueve 6px hacia arriba.
+   box-shadow añade una sombra difusa que da sensación de elevación. */
+.products:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* El círculo rojo también se agranda un poco al hacer hover,
+   como si el icono respirara. Detalle fino que se nota. */
+.products:hover .productLogo {
+    transform: scale(1.08);
+    transition: transform 0.3s ease;
 }
 
 .productLogo {
