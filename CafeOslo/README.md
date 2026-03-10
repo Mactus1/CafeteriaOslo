@@ -100,6 +100,10 @@ CafeOslo/
 - [x] `.gitignore` con exclusiones para macOS, Windows y editores
 - [x] `aria-label` y `aria-expanded` básicos (accesibilidad)
 - [x] Estructura visual adaptada al mockup de escritorio (`Proyecto_final.png`)
+- [x] Estructura visual adaptada al mockup móvil (`Proyecto_final_movil.png`)
+- [x] H1 con `clamp()` para escalar fluidamente según el ancho de pantalla
+- [x] Secciones dobles: texto centrado en ambos bloques en móvil
+- [x] Productos en móvil: icono centrado arriba, texto centrado abajo (`flex-direction: column`)
 - [x] Navbar con links correctos: El Espacio / Productos / Ofertas / Reservas / Contacto
 - [x] Iconos de productos con círculo rojo de fondo, layout icono izquierda + texto derecha
 - [x] Bloque rojo de secciones dobles con texto alineado a la izquierda
@@ -118,9 +122,6 @@ CafeOslo/
 
 ### 🔴 PRIORIDAD ALTA — Arreglos visuales que se notan mucho
 
-- [ ] **Ajustar espaciado entre iconos y texto en móvil**
-  - En móvil los productos pueden necesitar más padding lateral para no quedar pegados al borde.
-  - Revisar `.products` en pantallas pequeñas y ajustar `padding: 0 16px` si hace falta.
 
 ---
 
