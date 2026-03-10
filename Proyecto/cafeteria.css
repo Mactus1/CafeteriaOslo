@@ -1,0 +1,366 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*-------------------CODE-----------------------*/
+:root{
+    --red-color: #d03b40;
+    --beige-color: #ded6c0;
+    --white-color: #f5f0ed;
+    --gray-color: #241d1b;
+    --light-text: #f5f0ed;
+    --dark-text: #3c3c3b;
+    --font-size-level1: 44px;
+    --font-size-level2: 28px;
+    --font-size-level3: 24px;
+    --font-size-text: 16px;
+    --font-size-buttons: 14px;
+}
+/*
+@font-face{
+    font-family: "Open Sans Regular";
+    src: url("Tipografia/OpenSans-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: "Open Sans Bold";
+    src: url("Tipografia/OpenSans-Bold.ttf");
+    font-style: normal;
+}
+*/
+*{
+    box-sizing: border-box;
+}
+.header{
+    width: 100%;
+    min-height: 100vh;
+
+    background-position: center top;
+    background-image: url("imagenes/Fondo1.jpg");
+    background-size: cover;
+}
+.encabezado{
+    height: 100px;
+    width: 100%;
+    display: flow-root;
+    padding-top: 25px;
+    padding-left: 15px;
+}
+.navigation, .logo{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.logo{
+    background-image: url("imagenes/Logo.png");
+   
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 152px;
+}
+@media screen and (min-width: 360px){
+    .logo{
+        background-size: 180px;
+    }
+}
+.burgerButton{
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    
+    background-color: var(--red-color);
+    border-radius: 10px;
+    padding-top: 6px;
+    position: fixed;
+    z-index: 3;
+    cursor: pointer;
+    right: 0;
+}
+.burgerLine{
+    display: inline-block;
+    width: 70%;
+    height: 7px;
+
+    background-color: var(--white-color);
+    border-radius: 10px;
+}
+h1{
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    font-size: var(--font-size-level1);
+    color: var(--white-color);
+    margin: 100px auto 0;
+    padding: 0 5px;
+    font-weight: 700;
+}
+.section-divider{
+    height: 2px;
+    background-color: var(--white-color);
+    width: 100px;
+    margin: 35px auto 25px;
+}
+.description-text{
+    font-size: var(--font-size-text);
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    padding:  0 20px;
+    line-height: 1.4;
+    margin: 35px 0 0;
+}
+.headerDescriptionText{
+    color: var(--white-color);
+}
+.mediumBlock{
+    min-height: 55vh;
+    background-color: beige;
+}
+/*Avoid the box collapse*/
+.block{
+    padding-top: 1px;
+}
+.subtitle{
+    font-family: "Open Sans", sans-serif;
+    margin-top: 50px;
+    font-size: var(--font-size-level2);
+    text-align: center;
+    font-weight: 700;
+    
+}
+.redMediumBlock{
+    background-color: var(--red-color);
+    color: var(--beige-color);
+}
+.beigeMediumBlock{
+    background-color: var(--beige-color);
+    color: var(--red-color);
+}
+.breakfastBlock{
+    min-height: 70vh;
+    background-image: url("imagenes/Fondo2.jpg");
+    color: var(--white-color);
+}
+.button{
+    margin: 40px auto 0;
+    text-align: center;
+    font-size: var(--font-size-button);
+    font-family: "Open Sans", sans-serif;
+    width: 250px;
+    height: auto;
+    padding: 20px;
+    background-color: none;
+    border: 2px solid var(--white-color);
+}
+.button:hover{
+    transition: 0.5s background-color;
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+.productSection{
+    width: 100%;
+    height: auto;
+}
+.products{
+    width: 85%;
+    margin: 40px 0;
+
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+    color: var(--gray-color);
+}
+.productLogo{
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.productLogo1{
+    background-image: url("imagenes/Icono1.png");
+}
+.productLogo2{
+    background-image: url("imagenes/Icono2.png");
+}
+.productLogo3{
+    background-image: url("imagenes/Icono3.png");
+}
+.productLogo4{
+    background-image: url("imagenes/Icono4.png");
+}
+.products .subtitle{
+    margin-top: 15px;
+    text-align: justify;
+}
+.products .description-text{
+    margin-top: 10px;
+    text-align: justify;
+    padding: 0;
+}
+.contactLink{
+    text-decoration: none;
+    color: var(--red-color);
+    font-weight: 770;
+}
+.footer{
+    font-family: "Open Sans", sans-serif;
+    color: var(--white-color);
+    background-color: var(--gray-color);
+    text-align: center;
+}
+.footer p{
+    width: 85%;
+    display: inline-block;
+    margin: 40px 0;
+
+    text-align: justify; 
+    color: var(--white-color);
+    font-size: var(--font-size-text);
+    line-height: 1.5;
+}
+.product3 .subtitle{
+    text-align: center;
+}
+/*
+.navegacion{
+    max-height: 0px;
+    overflow: hidden;
+}
+    */
+    .navegacionList{
+        max-height: 0px;
+        overflow: hidden;
+    }
+    .headerText{
+        margin-top: 0px
+    }
+
+    .navegacionList a{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+
+        font-family: "Open Sans", sans-serif;
+        color: var(--white-color);
+        font-size: var(--font-size-text);
+
+        text-decoration: none;
+    }
+@media screen and (max-width: 768px){
+    .js .navegacionList.despliega-menu{
+        z-index: 2;
+        width: 100%;
+        max-height: 300px;
+        position: fixed;
+        top: 90px;
+        left: 0px;
+
+        background-color: var(--red-color);
+        text-align: center;
+    }
+    .navegacionList li a{
+        padding: 7px 0;
+    }
+    .navegacionList li a:hover{
+        cursor: pointer;
+        background-color: var(--gray-color);
+    }
+    .headerText.despliega-menu{
+        margin-top: 35px;
+    }
+    .body{
+        position: relative;
+    }
+    .body.despliega-menu::before{
+        content: "";
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+}
+}
+/*-----------------Diseño responsive para escritorio--------------*/
+@media screen and (min-width: 1024px){
+    .navegacionList{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 50px;
+        z-index: 100;
+    }
+    .navegacionList li{
+        display: inline-block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
