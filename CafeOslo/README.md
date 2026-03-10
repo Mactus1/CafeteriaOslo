@@ -99,6 +99,14 @@ CafeOslo/
 - [x] Imágenes de fondo con overlay para legibilidad del texto
 - [x] `.gitignore` con exclusiones para macOS, Windows y editores
 - [x] `aria-label` y `aria-expanded` básicos (accesibilidad)
+- [x] Estructura visual adaptada al mockup de escritorio (`Proyecto_final.png`)
+- [x] Navbar con links correctos: El Espacio / Productos / Ofertas / Reservas / Contacto
+- [x] Iconos de productos con círculo rojo de fondo, layout icono izquierda + texto derecha
+- [x] Bloque rojo de secciones dobles con texto alineado a la izquierda
+- [x] Bloque beige con texto centrado
+- [x] Footer alineado a la izquierda con formato `Mes Año · Todos los derechos reservados`
+- [x] `max-width` en el hero para que el texto no se estire en pantallas anchas
+- [x] `align-items: stretch` en secciones dobles para igualar alturas entre bloques
 
 ---
 
@@ -110,25 +118,9 @@ CafeOslo/
 
 ### 🔴 PRIORIDAD ALTA — Arreglos visuales que se notan mucho
 
-- [ ] **Corregir espaciado entre iconos y texto en la sección de productos**
-  - En móvil, los iconos y sus títulos tienen demasiado espacio entre ellos (`margin: 40px auto`).
-  - Reducir a `margin: 24px auto` y añadir `padding: 0 16px` en `.products` para que no queden pegados a los bordes de pantalla.
-
-- [ ] **Centrar correctamente los textos del hero**
-  - El `h1` y el párrafo del hero no tienen `max-width`, en pantallas muy anchas el texto se estira demasiado.
-  - Añadir `max-width: 700px; margin-left: auto; margin-right: auto;` al contenedor `.headerText`.
-
-- [ ] **Arreglar el padding lateral de las secciones dobles (Brunch / Fiestas)**
-  - En móvil, los `.mediumBlock` no tienen padding lateral suficiente y el texto llega demasiado cerca del borde.
-  - Cambiar a `padding: 50px 32px` en móvil y `padding: 60px 52px` en escritorio.
-
-- [ ] **Igualar la altura de los dos bloques en secciones dobles**
-  - Si un bloque tiene más texto que el otro, quedan con alturas distintas y se ve raro.
-  - Añadir `align-items: stretch` en `.doubleSection` para que siempre tengan la misma altura.
-
-- [ ] **Espaciado inferior de la sección de productos**
-  - El último producto queda muy pegado al footer sin margen de respiro.
-  - Añadir `padding-bottom: 60px` en `.productSection`.
+- [ ] **Ajustar espaciado entre iconos y texto en móvil**
+  - En móvil los productos pueden necesitar más padding lateral para no quedar pegados al borde.
+  - Revisar `.products` en pantallas pequeñas y ajustar `padding: 0 16px` si hace falta.
 
 ---
 

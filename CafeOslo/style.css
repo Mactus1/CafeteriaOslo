@@ -1,6 +1,6 @@
 /* =====================================================================
    CAFÉ OSLO — style.css
-   Autores: Ele + Juanes :b 🍞
+   Autores: Ele + compañero 🍞
    ===================================================================== */
 
 
@@ -31,9 +31,7 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
+footer, header, hgroup, menu, nav, section { display: block; }
 body       { line-height: 1; }
 ol, ul     { list-style: none; }
 blockquote, q { quotes: none; }
@@ -97,9 +95,8 @@ body {
 
 
 /* ── HEADER / HERO ───────────────────────────────────────────────────────
-   La primera sección, con imagen de fondo a pantalla completa.
-   min-height en vez de height para que el contenido no se corte
-   si el texto es largo (ej. en pantallas pequeñas).
+   Primera sección a pantalla completa con imagen de fondo.
+   El overlay oscuro (background-blend-mode) hace legible el texto blanco.
    ----------------------------------------------------------------------- */
 .header {
     width: 100%;
@@ -109,28 +106,25 @@ body {
     background-size: cover;
     background-position: center top;
 
-    /* Overlay oscuro encima de la imagen para que el texto blanco sea legible.
-       linear-gradient de negro semitransparente sobre la foto. */
-    background-color: rgba(0, 0, 0, 0.35);
+    /* Overlay oscuro para legibilidad del texto */
+    background-color: rgba(0, 0, 0, 0.45);
     background-blend-mode: multiply;
 }
 
 
 /* ── BARRA DE NAVEGACIÓN ─────────────────────────────────────────────────
-   .encabezado contiene logo + nav.
-   En móvil: logo a la izquierda, hamburguesa a la derecha (float).
-   En escritorio: flexbox los pone en fila con espacio entre ellos.
+   .encabezado: contenedor de logo + nav.
+   En escritorio usa flexbox para poner logo a la izquierda y menú a la derecha.
+   En móvil los floats los colocan uno junto al otro.
    ----------------------------------------------------------------------- */
 .encabezado {
     width: 100%;
-    height: 90px;
-    display: flow-root;   /* Clearfix moderno: contiene los floats internos */
-    padding-top: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
+    height: 70px;
+    display: flow-root;
+    padding: 15px 20px 0;
 }
 
-/* El logo usa imagen de fondo para que sea fácil de cambiar desde el CSS */
+/* Logo: imagen de fondo para cambiarlo fácil desde CSS */
 .logo {
     float: left;
     width: 50%;
@@ -138,8 +132,9 @@ body {
 
     background-image: url("imagenes/Logo.png");
     background-repeat: no-repeat;
-    background-position: center left;
-    background-size: 160px;
+    background-position: left center;
+    background-size: contain;
+    max-width: 160px;
 }
 
 .navigation {
@@ -150,8 +145,8 @@ body {
 
 
 /* ── BOTÓN HAMBURGUESA ───────────────────────────────────────────────────
-   Solo visible en móvil (en escritorio lo ocultamos con display: none).
-   position: fixed para que se quede siempre visible al hacer scroll.
+   Solo visible en móvil. position: fixed para que se quede en pantalla
+   al hacer scroll. z-index alto para estar por encima de todo.
    ----------------------------------------------------------------------- */
 .burgerButton {
     width: 60px;
@@ -170,7 +165,7 @@ body {
     position: fixed;
     top: 15px;
     right: 15px;
-    z-index: 10;   /* Por encima de todo lo demás */
+    z-index: 10;
 }
 
 /* Las tres rayitas del botón hamburguesa */
@@ -184,9 +179,9 @@ body {
 
 
 /* ── MENÚ DESPLEGABLE ────────────────────────────────────────────────────
-   En móvil empieza con max-height: 0 y overflow: hidden (invisible).
-   Cuando el JS añade la clase .despliega-menu, se expande a max-height: 300px.
-   Usamos max-height en vez de display: none/block para poder animar la transición.
+   En móvil empieza con max-height: 0 (invisible).
+   El JS añade .despliega-menu y se expande. Usamos max-height en vez de
+   display:none/block para poder animar la transición con CSS.
    ----------------------------------------------------------------------- */
 .navegacionList {
     max-height: 0;
@@ -198,7 +193,6 @@ body {
     display: inline-block;
     width: 100%;
     height: 100%;
-
     font-family: "Open Sans", sans-serif;
     font-size: var(--font-size-text);
     color: var(--white-color);
@@ -207,61 +201,65 @@ body {
 
 
 /* ── TEXTO HERO ──────────────────────────────────────────────────────────
-   El bloque de título + separador + descripción sobre la imagen de fondo.
+   Bloque centrado con título grande + párrafo descriptivo.
+   max-width evita que el texto se estire en pantallas muy anchas.
    ----------------------------------------------------------------------- */
 .headerText {
-    margin-top: 0;
-    transition: margin-top 0.3s ease;   /* Transición suave cuando baja al abrirse el menú */
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 24px;
+    transition: margin-top 0.3s ease;
 }
 
 h1 {
     font-family: "Playfair Display", serif;
     font-size: var(--font-size-level1);
     font-weight: 900;
-    text-align: center;
     color: var(--white-color);
     text-transform: uppercase;
     letter-spacing: 2px;
     line-height: 1.15;
-    margin: 80px auto 0;
-    padding: 0 20px;
+    margin: 120px auto 30px;
 }
 
-/* Línea decorativa blanca debajo del h1 */
+/* Separador decorativo blanco — aparece en la sección "Ven a desayunar" */
 .section-divider {
     height: 2px;
-    width: 100px;
+    width: 80px;
     background-color: var(--white-color);
-    margin: 30px auto 25px;
+    margin: 24px auto;
 }
 
 .description-text {
     font-size: var(--font-size-text);
     font-family: "Open Sans", sans-serif;
-    text-align: center;
     line-height: 1.6;
     padding: 0 20px;
-    margin: 20px 0 0;
+    margin-top: 16px;
 }
 
 .headerDescriptionText {
     color: var(--white-color);
-    margin-bottom: 40px;
+    text-align: center;
+    padding-bottom: 60px;
 }
 
 
-/* ── SECCIÓN DOBLE (BRUNCH / FIESTAS y CONTACTO / UBICACIÓN) ─────────────
-   Dos bloques de color lado a lado.
-   En móvil se apilan (column), en escritorio van en fila (row).
+/* ── SECCIÓN DOBLE (BRUNCH / FIESTAS  y  CONTACTO / UBICACIÓN) ───────────
+   Dos bloques de color lado a lado en escritorio, apilados en móvil.
+   align-items: stretch garantiza que siempre tengan la misma altura.
    ----------------------------------------------------------------------- */
 .doubleSection {
     display: flex;
-    flex-direction: column;   /* Móvil: columna */
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .mediumBlock {
     min-height: 55vh;
-    flex: 1;                  /* Cuando estén en fila, cada uno ocupa el mismo espacio */
+    flex: 1;
+    padding: 50px 32px;
 }
 
 .redMediumBlock {
@@ -274,59 +272,77 @@ h1 {
     color: var(--red-color);
 }
 
-/* Títulos de sección (h2) */
+/* Títulos de sección */
 .subtitle {
-    font-family: "Playfair Display", serif;
+    font-family: "Open Sans", sans-serif;
     font-size: var(--font-size-level2);
     font-weight: 700;
-    text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: 50px;
+    line-height: 1.2;
+    margin-top: 30px;
 }
 
-/* Herencia de color para el texto dentro de cada bloque */
-.redMediumBlock  .description-text { color: var(--white-color); }
-.beigeMediumBlock .description-text { color: var(--dark-text); }
-.redMediumBlock  .subtitle { color: var(--white-color); }
-.beigeMediumBlock .subtitle { color: var(--red-color); }
+/* En el mockup: texto del bloque rojo alineado a la izquierda */
+.redMediumBlock  .subtitle        { color: var(--white-color); text-align: left; }
+.redMediumBlock  .description-text { color: var(--white-color); text-align: left; padding: 0; margin-top: 20px; }
+
+/* En el mockup: texto del bloque beige centrado */
+.beigeMediumBlock .subtitle        { color: var(--red-color); text-align: center; }
+.beigeMediumBlock .description-text { color: var(--dark-text); text-align: center; padding: 0; margin-top: 20px; }
 
 
 /* ── VEN A DESAYUNAR ─────────────────────────────────────────────────────
-   Segunda sección con imagen de fondo (Fondo2.jpg).
+   Segunda sección con imagen de fondo (Fondo2.jpg) y overlay oscuro.
+   Todo centrado, igual que en el mockup.
    ----------------------------------------------------------------------- */
 .breakfastBlock {
     min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
     background-image: url("imagenes/Fondo2.jpg");
     background-size: cover;
     background-position: center;
     color: var(--white-color);
 
-    /* Mismo truco de overlay que el hero */
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
+
+    padding: 60px 24px;
 }
 
-.breakfastBlock .subtitle,
+.breakfastBlock .subtitle {
+    color: var(--white-color);
+    text-align: center;
+    font-size: clamp(1.6rem, 4vw, var(--font-size-level1));
+    margin-top: 0;
+}
+
 .breakfastBlock .description-text {
     color: var(--white-color);
+    text-align: center;
+    max-width: 480px;
+    padding: 0;
 }
 
 
 /* ── BOTÓN ───────────────────────────────────────────────────────────────
-   Borde blanco, fondo transparente. Al hover, se rellena de blanco
-   y el texto cambia a oscuro. Transición suave de 0.3s.
+   Borde blanco, fondo transparente. Al hover se rellena de blanco.
+   display: inline-block para que respete el ancho del contenido.
    ----------------------------------------------------------------------- */
 .button {
-    display: block;
-    width: 260px;
-    margin: 40px auto 0;
-    padding: 16px 20px;
+    display: inline-block;
+    margin-top: 36px;
+    padding: 16px 36px;
 
     font-family: "Open Sans", sans-serif;
     font-size: var(--font-size-buttons);
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     text-align: center;
     text-decoration: none;
@@ -346,26 +362,33 @@ h1 {
 
 
 /* ── PRODUCTOS ───────────────────────────────────────────────────────────
-   Cuatro bloques de producto. En móvil en columna, en escritorio en grid 2x2.
+   En móvil: bloques en columna, icono arriba, texto abajo.
+   En escritorio: grid 2x2, icono circular a la izquierda, texto a la derecha.
    ----------------------------------------------------------------------- */
 .productSection {
     width: 100%;
     background-color: var(--white-color);
-    padding-bottom: 40px;
+    padding: 50px 24px 60px;
 }
 
 .products {
-    width: 85%;
-    margin: 40px auto;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    margin: 24px 0;
     color: var(--gray-color);
 }
 
-/* Iconos de producto: divs con imagen de fondo */
+/* Círculo rojo con el icono dentro, igual que en el mockup */
 .productLogo {
-    width: 100%;
-    height: 100px;
-    background-size: contain;
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;              /* El círculo */
+    background-color: var(--red-color);
+    background-size: 55%;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -375,13 +398,31 @@ h1 {
 .productLogo3 { background-image: url("imagenes/Icono3.png"); }
 .productLogo4 { background-image: url("imagenes/Icono4.png"); }
 
-/* El texto de producto va alineado a la izquierda para mejor legibilidad */
-.products .subtitle         { margin-top: 15px; text-align: center; }
-.products .description-text { margin-top: 10px; text-align: justify; padding: 0; color: var(--dark-text); }
+/* Texto del producto alineado a la izquierda */
+.productText {
+    flex: 1;
+}
+
+.products .subtitle {
+    font-size: var(--font-size-level3);
+    font-weight: 700;
+    text-align: left;
+    margin-top: 8px;
+    color: var(--gray-color);
+}
+
+.products .description-text {
+    margin-top: 8px;
+    text-align: left;
+    padding: 0;
+    color: var(--dark-text);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
 
 
 /* ── ENLACE DE CONTACTO ──────────────────────────────────────────────────
-   El mailto: del email y el enlace de Google Maps.
+   El email y Google Maps. En el mockup el email es rojo y negrita.
    ----------------------------------------------------------------------- */
 .contactLink {
     font-weight: 700;
@@ -389,40 +430,39 @@ h1 {
 }
 
 .beigeMediumBlock .contactLink { color: var(--red-color); }
-.redMediumBlock   .contactLink { color: var(--white-color); text-decoration: underline; }
+.redMediumBlock   .contactLink { color: var(--white-color); font-weight: 700; }
 
 
 /* ── FOOTER ──────────────────────────────────────────────────────────────
-   Barra oscura de cierre. Sencilla y elegante.
+   En el mockup: texto pequeño alineado a la IZQUIERDA, fondo oscuro.
    ----------------------------------------------------------------------- */
 .footer {
     font-family: "Open Sans", sans-serif;
     background-color: var(--gray-color);
-    text-align: center;
-    padding: 30px 20px;
+    padding: 24px 32px;
+    text-align: left;
 }
 
 .footer p {
     color: rgba(245, 240, 237, 0.6);
-    font-size: var(--font-size-text);
+    font-size: 13px;
     line-height: 1.5;
 }
 
 
-/* ── ESTADOS DEL MENÚ (añadidos por JavaScript) ──────────────────────────
-   Estas clases las añade y quita el JS al pulsar la hamburguesa.
-   Aquí definimos QUÉ pasa visualmente. El JS solo decide CUÁNDO.
+/* ── ESTADOS DEL MENÚ (clases añadidas por JavaScript) ───────────────────
+   El JS solo se encarga de añadir/quitar clases. El CSS decide qué pasa.
+   Así separamos comportamiento (JS) de presentación (CSS). Buenas prácticas.
    ----------------------------------------------------------------------- */
 
-/* El menú se hace visible */
+/* Menú visible en móvil */
 .js .navegacionList.despliega-menu {
     max-height: 300px;
     width: 100%;
     position: fixed;
-    top: 80px;
+    top: 75px;
     left: 0;
     z-index: 5;
-
     background-color: var(--red-color);
     text-align: center;
 }
@@ -436,14 +476,14 @@ h1 {
     cursor: pointer;
 }
 
-/* El título del hero baja un poco para no quedar tapado por el menú */
+/* El texto del hero baja para no quedar tapado por el menú */
 .headerText.despliega-menu {
     margin-top: 40px;
 }
 
-/* Overlay oscuro sobre el resto de la página cuando el menú está abierto.
-   Se añade con ::before en el body. El z-index 1 lo pone por encima del
-   contenido pero por debajo del menú (z-index 5) y la hamburguesa (z-index 10). */
+/* Overlay oscuro detrás del menú abierto.
+   z-index 1: por encima del contenido, por debajo del menú (z-index 5)
+   y de la hamburguesa (z-index 10). */
 .body {
     position: relative;
 }
@@ -460,26 +500,44 @@ h1 {
 
 /* =====================================================================
    RESPONSIVE — ESCRITORIO (min-width: 1024px)
-   A partir de aquí el diseño cambia para pantallas grandes.
-   Todo lo de arriba es móvil-primero (mobile first).
+   Todo lo de arriba es mobile-first. A partir de aquí, escritorio.
    ===================================================================== */
 @media screen and (min-width: 1024px) {
 
-    /* La hamburguesa desaparece. En escritorio no la necesitamos. */
+    /* La hamburguesa desaparece en escritorio */
     .burgerButton {
         display: none;
     }
 
-    /* El menú siempre visible, en fila horizontal */
+    /* La barra de navegación usa flexbox: logo izq, menú der */
+    .encabezado {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+        padding: 0 48px;
+    }
+
+    .logo {
+        float: none;
+        width: auto;
+        min-width: 160px;
+        height: 50px;
+    }
+
+    .navigation {
+        float: none;
+        width: auto;
+        height: auto;
+    }
+
+    /* Menú horizontal siempre visible */
     .navegacionList {
         max-height: none;
         overflow: visible;
         display: flex;
-        justify-content: flex-end;
         align-items: center;
-        gap: 28px;
-        padding: 0 50px;
-        height: 100%;
+        gap: 32px;
     }
 
     .navegacionList li {
@@ -487,13 +545,14 @@ h1 {
     }
 
     .navegacionList a {
-        font-size: 0.78rem;
+        font-size: 0.72rem;
         font-weight: 700;
         letter-spacing: 1.5px;
         text-transform: uppercase;
-        transition: opacity 0.2s;
+        color: var(--white-color);
         width: auto;
         height: auto;
+        transition: opacity 0.2s;
     }
 
     .navegacionList a:hover {
@@ -501,45 +560,26 @@ h1 {
         background-color: transparent;
     }
 
-    /* En escritorio, las secciones dobles van en fila */
+    /* Secciones dobles en fila */
     .doubleSection {
         flex-direction: row;
     }
 
-    /* Grid 2x2 para los productos */
+    .mediumBlock {
+        padding: 60px 52px;
+    }
+
+    /* Grid 2x2 para productos */
     .productSection {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 0 60px;
-        max-width: 1000px;
+        column-gap: 60px;
+        max-width: 1100px;
         margin: 0 auto;
-        padding: 60px 40px;
+        padding: 60px 48px;
     }
 
-    /* En escritorio, cada producto tiene icono a la izquierda y texto a la derecha */
     .products {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 20px;
-        text-align: left;
-        width: 100%;
-        margin: 20px 0;
-    }
-
-    .productLogo {
-        flex-shrink: 0;
-        width: 80px;
-        height: 80px;
-    }
-
-    .products .subtitle,
-    .products .description-text {
-        text-align: left;
-    }
-
-    /* El h1 puede ser más grande en escritorio */
-    h1 {
-        font-size: clamp(2.5rem, 5vw, var(--font-size-level1));
+        margin: 28px 0;
     }
 }
