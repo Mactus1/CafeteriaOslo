@@ -471,6 +471,44 @@ h1 {
 }
 
 
+
+/* ── ANIMACIONES DE ENTRADA AL HACER SCROLL ─────────────────────────────
+   Las secciones empiezan invisibles (opacity: 0) y desplazadas hacia abajo
+   (translateY 30px). Cuando el JS añade la clase .visible, el CSS las
+   anima suavemente a su posición y opacidad final.
+
+   El estado inicial (sin .visible) se aplica solo si JS está activo (.js),
+   así si el JS falla el contenido sigue siendo visible.
+   ----------------------------------------------------------------------- */
+
+/* Estado inicial: invisible y desplazado */
+.js .doubleSection,
+.js .breakfastBlock,
+.js .productSection,
+.js .products,
+.js .footer {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Estado final: visible. El JS añade esta clase con IntersectionObserver. */
+.js .doubleSection.visible,
+.js .breakfastBlock.visible,
+.js .productSection.visible,
+.js .products.visible,
+.js .footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Los productos tienen un retardo escalonado para que no aparezcan todos
+   a la vez, sino uno tras otro. Da sensación de profundidad y dinamismo. */
+.js .product2 { transition-delay: 0.1s; }
+.js .product3 { transition-delay: 0.2s; }
+.js .product4 { transition-delay: 0.3s; }
+
+
 /* ── ESTADOS DEL MENÚ (clases añadidas por JavaScript) ───────────────────
    El JS solo se encarga de añadir/quitar clases. El CSS decide qué pasa.
    Así separamos comportamiento (JS) de presentación (CSS). Buenas prácticas.

@@ -3,6 +3,8 @@
    El JavaScript de la web. Controla:
    1. El menú hamburguesa en móvil
    2. El efecto de scroll en la navbar (transparente → fondo oscuro)
+   3. El enlace activo de la navbar según sección visible
+   4. Animaciones de entrada al hacer scroll en cada sección
    ===================================================================== */
 
 
@@ -20,6 +22,12 @@ const CLASE_SCROLLED       = "scrolled";
 
 // Clase que marca el enlace del menú correspondiente a la sección visible
 const CLASE_ACTIVO         = "activo";
+
+// Clase que dispara la animación de entrada (definida en style.css)
+const CLASE_VISIBLE        = "visible";
+
+// Selector de todos los elementos que queremos animar al hacer scroll
+const SELECTOR_ANIMABLES   = ".doubleSection, .breakfastBlock, .productSection, .products, .footer";
 
 // El contenedor del menú que se despliega
 const SELECTOR_MENU        = "#menu";
@@ -118,6 +126,40 @@ function activarEnlace() {
 }
 
 
+/* ── FUNCIÓN: animarAlScroll ─────────────────────────────────────────────
+   Añade la clase .visible a cada sección cuando entra en pantalla,
+   lo que dispara la animación fadeUp definida en el CSS.
+
+   El truco es que en el CSS las secciones empiezan con opacity: 0 y
+   translateY(30px) (invisibles y un poco abajo). Cuando el JS añade
+   .visible, el CSS las anima suavemente hasta opacity: 1 y translateY(0).
+
+   threshold: 0.15 significa que la animación se dispara cuando el 15%
+   del elemento es visible en pantalla. Ni demasiado pronto ni demasiado tarde.
+
+   Una vez visible, dejamos de observar el elemento (unobserve) para no
+   volver a animarlo si el usuario sube y baja. Se anima solo una vez.
+   ----------------------------------------------------------------------- */
+function animarAlScroll() {
+    const elementos = document.querySelectorAll(SELECTOR_ANIMABLES);
+
+    const observador = new IntersectionObserver(
+        (entradas) => {
+            entradas.forEach((entrada) => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add(CLASE_VISIBLE);
+                    // Una vez animado, ya no hace falta seguir observándolo
+                    observador.unobserve(entrada.target);
+                }
+            });
+        },
+        { threshold: 0.15 }
+    );
+
+    elementos.forEach((el) => observador.observe(el));
+}
+
+
 /* ── FUNCIÓN: efectoScroll ───────────────────────────────────────────────
    Escucha el scroll de la página y añade/quita la clase .scrolled
    en la navbar según si el usuario está arriba del todo o no.
@@ -184,6 +226,9 @@ efectoScroll();
 
 // Arrancamos el observador de sección activa.
 activarEnlace();
+
+// Arrancamos las animaciones de entrada al hacer scroll.
+animarAlScroll();
 
 // Arrancamos la función principal. Todo empieza aquí.
 nav();
