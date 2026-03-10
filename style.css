@@ -558,7 +558,7 @@ h1 {
         overflow: visible;
         display: flex;
         align-items: center;
-        gap: 32px;
+        gap: 48px;
     }
 
     .navegacionList li {
