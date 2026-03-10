@@ -18,6 +18,9 @@ const SELECTOR_ENCABEZADO  = ".encabezado";
 // Clase que activa el fondo oscuro de la navbar al hacer scroll
 const CLASE_SCROLLED       = "scrolled";
 
+// Clase que marca el enlace del menú correspondiente a la sección visible
+const CLASE_ACTIVO         = "activo";
+
 // El contenedor del menú que se despliega
 const SELECTOR_MENU        = "#menu";
 
@@ -62,6 +65,56 @@ function despliegaMenu() {
     const boton = document.querySelector(SELECTOR_BOTON);
     const estaAbierto = menu.classList.contains(CLASE_MENU_ABIERTO);
     boton.setAttribute("aria-expanded", estaAbierto ? "true" : "false");
+}
+
+
+/* ── FUNCIÓN: activarEnlace ──────────────────────────────────────────────
+   Marca el enlace del menú correspondiente a la sección que el usuario
+   está viendo en ese momento.
+
+   Usa IntersectionObserver, una API del navegador que avisa cuando un
+   elemento entra o sale del viewport (la parte visible de la pantalla).
+   Es mucho más eficiente que escuchar el evento scroll y calcular
+   posiciones manualmente. El navegador se encarga de todo.
+
+   rootMargin: "-40% 0px -55% 0px" significa que la sección se considera
+   "activa" cuando su parte central está en pantalla, no cuando asoma
+   por arriba o por abajo. Así el cambio de enlace se siente natural.
+   ----------------------------------------------------------------------- */
+function activarEnlace() {
+
+    // Recogemos todas las secciones que tienen un enlace en el menú
+    const secciones = document.querySelectorAll("#espacio, #agendaReservacion, #ofertas, #productos, #contacto");
+
+    const observador = new IntersectionObserver(
+        (entradas) => {
+            entradas.forEach((entrada) => {
+
+                // Solo nos interesa cuando una sección ENTRA en el viewport
+                if (!entrada.isIntersecting) return;
+
+                // Quitamos .activo de todos los enlaces
+                const todosLosEnlaces = document.querySelectorAll(".opcionMenu");
+                todosLosEnlaces.forEach((enlace) => enlace.classList.remove(CLASE_ACTIVO));
+
+                // Buscamos el enlace cuyo href apunta a la sección visible
+                // entrada.target.id devuelve el id de la sección (ej: "productos")
+                const enlaceActivo = document.querySelector(`.opcionMenu[href="#${entrada.target.id}"]`);
+                if (enlaceActivo) {
+                    enlaceActivo.classList.add(CLASE_ACTIVO);
+                }
+            });
+        },
+        {
+            // La sección se activa cuando su zona central cruza la pantalla.
+            // Ajusta estos valores si el cambio de enlace se siente demasiado
+            // pronto o demasiado tarde.
+            rootMargin: "-40% 0px -55% 0px"
+        }
+    );
+
+    // Le decimos al observador qué secciones vigilar
+    secciones.forEach((seccion) => observador.observe(seccion));
 }
 
 
@@ -128,6 +181,9 @@ window.addEventListener("scroll", efectoScroll, { passive: true });
 // Llamamos una vez al cargar para que el estado inicial sea correcto
 // (por si alguien recarga la página ya habiendo bajado)
 efectoScroll();
+
+// Arrancamos el observador de sección activa.
+activarEnlace();
 
 // Arrancamos la función principal. Todo empieza aquí.
 nav();

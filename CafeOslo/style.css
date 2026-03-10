@@ -581,6 +581,15 @@ h1 {
         background-color: transparent;
     }
 
+    /* Enlace activo: el que corresponde a la sección visible en pantalla.
+       El JS añade esta clase dinámicamente con IntersectionObserver.
+       Subrayado fino debajo del texto como indicador visual sutil. */
+    .navegacionList a.activo {
+        opacity: 1;
+        border-bottom: 2px solid var(--white-color);
+        padding-bottom: 2px;
+    }
+
     /* Secciones dobles en fila */
     .doubleSection {
         flex-direction: row;

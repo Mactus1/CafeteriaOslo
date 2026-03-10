@@ -105,6 +105,7 @@ CafeOslo/
 - [x] Secciones dobles: texto centrado en ambos bloques en móvil
 - [x] Productos en móvil: icono centrado arriba, texto centrado abajo (`flex-direction: column`)
 - [x] Navbar fija con efecto scroll (transparente → fondo oscuro al bajar 50px)
+- [x] Enlace activo en navbar según sección visible (IntersectionObserver)
 - [x] Navbar con links correctos: El Espacio / Productos / Ofertas / Reservas / Contacto
 - [x] Iconos de productos con círculo rojo de fondo, layout icono izquierda + texto derecha
 - [x] Bloque rojo de secciones dobles con texto alineado a la izquierda
@@ -130,9 +131,6 @@ CafeOslo/
 
 - [x] **Navbar con efecto scroll**
 
-- [ ] **Resaltar el enlace activo en la navbar**
-  - El enlace de la sección que el usuario está viendo debería estar marcado visualmente.
-  - Implementar con `IntersectionObserver` en JS, que detecta qué sección está en pantalla y añade una clase `.activo` al enlace correspondiente.
 
 - [ ] **Enlace real a Google Maps**
   - Sustituir `https://maps.google.com` por la URL real de la ubicación del café.
