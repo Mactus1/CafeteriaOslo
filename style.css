@@ -1,0 +1,702 @@
+/* =====================================================================
+   CAFÉ OSLO — style.css
+   Autores: Ele + compañero 🍞
+   ===================================================================== */
+
+
+/* ── RESET ──────────────────────────────────────────────────────────────
+   Meyer Reset v2.0 (dominio público).
+   Elimina los márgenes y paddings que cada navegador aplica por defecto,
+   así partimos todos desde cero y el diseño es igual en Chrome, Firefox,
+   Safari y el navegador de tu nevera inteligente.
+   ----------------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { display: block; }
+body       { line-height: 1; }
+ol, ul     { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+/* ── VARIABLES CSS ───────────────────────────────────────────────────────
+   Aquí están TODOS los colores y tamaños del proyecto.
+   Si el cliente dice "el rojo no me convence", cambias UN valor aquí
+   y se actualiza en todo el CSS. Magia. O buenas prácticas. Lo mismo.
+   ----------------------------------------------------------------------- */
+:root {
+    /* Paleta de colores */
+    --red-color:   #d03b40;
+    --beige-color: #ded6c0;
+    --white-color: #f5f0ed;
+    --gray-color:  #241d1b;
+    --light-text:  #f5f0ed;
+    --dark-text:   #3c3c3b;
+
+    /* Escala tipográfica según especificaciones del diseño */
+    --font-size-level1:   44px;
+    --font-size-level2:   28px;
+    --font-size-level3:   24px;
+    --font-size-text:     16px;
+    --font-size-buttons:  14px;
+}
+
+
+/* ── BASE ────────────────────────────────────────────────────────────────
+   box-sizing: border-box hace que el padding y el borde se cuenten DENTRO
+   del ancho del elemento, no fuera. Sin esto, un div de 200px + 20px de
+   padding mide 240px. Con esto, mide 200px. La lógica vuelve al mundo.
+   ----------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    /* Scroll suave al pulsar los enlaces del menú (#productos, #contacto...) */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: var(--dark-text);
+    background-color: var(--white-color);
+}
+
+
+/* ── BLOQUE AUXILIAR ─────────────────────────────────────────────────────
+   .block aplica padding-top: 1px para evitar el "margin collapse".
+   Es un fenómeno de CSS donde los márgenes de elementos hijos se "escapan"
+   fuera del padre. El padding mínimo lo previene sin alterar el diseño.
+   ----------------------------------------------------------------------- */
+.block {
+    padding-top: 1px;
+}
+
+
+/* ── HEADER / HERO ───────────────────────────────────────────────────────
+   Primera sección a pantalla completa con imagen de fondo.
+   El overlay oscuro (background-blend-mode) hace legible el texto blanco.
+   ----------------------------------------------------------------------- */
+.header {
+    width: 100%;
+    min-height: 100vh;
+    /* padding-top compensa la navbar fixed (70px) para que el contenido
+       no quede tapado por ella al cargar la página. */
+    padding-top: 70px;
+
+    background-image: url("imagenes/Fondo1.jpg");
+    background-size: cover;
+    background-position: center top;
+
+    /* Overlay oscuro para legibilidad del texto */
+    background-color: rgba(0, 0, 0, 0.45);
+    background-blend-mode: multiply;
+}
+
+
+/* ── BARRA DE NAVEGACIÓN ─────────────────────────────────────────────────
+   .encabezado: contenedor de logo + nav.
+   En escritorio usa flexbox para poner logo a la izquierda y menú a la derecha.
+   En móvil los floats los colocan uno junto al otro.
+   ----------------------------------------------------------------------- */
+.encabezado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flow-root;
+    padding: 15px 20px 0;
+    z-index: 20;
+
+    /* Empieza transparente sobre el hero. El JS añade .scrolled al bajar. */
+    background-color: transparent;
+    transition: background-color 0.4s ease;
+}
+
+/* Clase añadida por JS cuando el usuario ha bajado de la pantalla del hero.
+   Fondo oscuro semitransparente para que los links del menú sean legibles. */
+.encabezado.scrolled {
+    background-color: rgba(36, 29, 27, 0.92);
+}
+
+/* Logo: imagen de fondo para cambiarlo fácil desde CSS */
+.logo {
+    float: left;
+    width: 50%;
+    height: 100%;
+
+    background-image: url("imagenes/Logo.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain;
+    max-width: 160px;
+}
+
+.navigation {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+
+/* ── BOTÓN HAMBURGUESA ───────────────────────────────────────────────────
+   Solo visible en móvil. position: fixed para que se quede en pantalla
+   al hacer scroll. z-index alto para estar por encima de todo.
+   ----------------------------------------------------------------------- */
+.burgerButton {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    background-color: var(--red-color);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+/* Las tres rayitas del botón hamburguesa */
+.burgerLine {
+    display: block;
+    width: 70%;
+    height: 5px;
+    background-color: var(--white-color);
+    border-radius: 4px;
+}
+
+
+/* ── MENÚ DESPLEGABLE ────────────────────────────────────────────────────
+   En móvil empieza con max-height: 0 (invisible).
+   El JS añade .despliega-menu y se expande. Usamos max-height en vez de
+   display:none/block para poder animar la transición con CSS.
+   ----------------------------------------------------------------------- */
+.navegacionList {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.navegacionList a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-family: "Open Sans", sans-serif;
+    font-size: var(--font-size-text);
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+
+/* ── TEXTO HERO ──────────────────────────────────────────────────────────
+   Bloque centrado con título grande + párrafo descriptivo.
+   max-width evita que el texto se estire en pantallas muy anchas.
+   ----------------------------------------------------------------------- */
+.headerText {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 24px;
+    transition: margin-top 0.3s ease;
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    /* clamp(mínimo, fluido, máximo): en móvil más pequeño, en escritorio más grande.
+       Se adapta automáticamente al ancho de pantalla sin media queries. */
+    font-size: clamp(1.8rem, 8vw, var(--font-size-level1));
+    font-weight: 900;
+    color: var(--white-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.15;
+    margin: 80px auto 24px;
+}
+
+/* Separador decorativo blanco — aparece en la sección "Ven a desayunar" */
+.section-divider {
+    height: 2px;
+    width: 80px;
+    background-color: var(--white-color);
+    margin: 24px auto;
+}
+
+.description-text {
+    font-size: var(--font-size-text);
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.6;
+    padding: 0 20px;
+    margin-top: 16px;
+}
+
+.headerDescriptionText {
+    color: var(--white-color);
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+
+/* ── SECCIÓN DOBLE (BRUNCH / FIESTAS  y  CONTACTO / UBICACIÓN) ───────────
+   Dos bloques de color lado a lado en escritorio, apilados en móvil.
+   align-items: stretch garantiza que siempre tengan la misma altura.
+   ----------------------------------------------------------------------- */
+.doubleSection {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.mediumBlock {
+    min-height: 55vh;
+    flex: 1;
+    padding: 50px 32px;
+}
+
+.redMediumBlock {
+    background-color: var(--red-color);
+    color: var(--beige-color);
+}
+
+.beigeMediumBlock {
+    background-color: var(--beige-color);
+    color: var(--red-color);
+}
+
+/* Títulos de sección */
+.subtitle {
+    font-family: "Open Sans", sans-serif;
+    font-size: var(--font-size-level2);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin-top: 30px;
+}
+
+/* En móvil ambos bloques tienen texto centrado (mockup móvil).
+   En escritorio el rojo va a la izquierda (ver media query al final del archivo). */
+.redMediumBlock  .subtitle         { color: var(--white-color); text-align: center; }
+.redMediumBlock  .description-text { color: var(--white-color); text-align: center; padding: 0; margin-top: 20px; }
+
+.beigeMediumBlock .subtitle         { color: var(--red-color); text-align: center; }
+.beigeMediumBlock .description-text { color: var(--dark-text); text-align: center; padding: 0; margin-top: 20px; }
+
+
+/* ── VEN A DESAYUNAR ─────────────────────────────────────────────────────
+   Segunda sección con imagen de fondo (Fondo2.jpg) y overlay oscuro.
+   Todo centrado, igual que en el mockup.
+   ----------------------------------------------------------------------- */
+.breakfastBlock {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-image: url("imagenes/Fondo2.jpg");
+    background-size: cover;
+    background-position: center;
+    color: var(--white-color);
+
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+
+    padding: 60px 24px;
+}
+
+.breakfastBlock .subtitle {
+    color: var(--white-color);
+    text-align: center;
+    font-size: clamp(1.6rem, 4vw, var(--font-size-level1));
+    margin-top: 0;
+}
+
+.breakfastBlock .description-text {
+    color: var(--white-color);
+    text-align: center;
+    max-width: 480px;
+    padding: 0;
+}
+
+
+/* ── BOTÓN ───────────────────────────────────────────────────────────────
+   Borde blanco, fondo transparente. Al hover se rellena de blanco.
+   display: inline-block para que respete el ancho del contenido.
+   ----------------------------------------------------------------------- */
+.button {
+    display: inline-block;
+    margin-top: 36px;
+    padding: 16px 36px;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: var(--font-size-buttons);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white-color);
+
+    border: 2px solid var(--white-color);
+    background-color: transparent;
+    cursor: pointer;
+
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--white-color);
+    color: var(--dark-text);
+}
+
+
+/* ── PRODUCTOS ───────────────────────────────────────────────────────────
+   En móvil: bloques en columna, icono arriba, texto abajo.
+   En escritorio: grid 2x2, icono circular a la izquierda, texto a la derecha.
+   ----------------------------------------------------------------------- */
+.productSection {
+    width: 100%;
+    background-color: var(--white-color);
+    padding: 50px 24px 60px;
+}
+
+/* En móvil: icono centrado arriba, texto centrado debajo.
+   En escritorio: fila con icono a la izquierda y texto a la derecha (ver media query). */
+.products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin: 32px 0;
+    color: var(--gray-color);
+    text-align: center;
+
+    /* Padding y border-radius para que la sombra del hover tenga espacio */
+    padding: 20px 16px;
+    border-radius: 8px;
+
+    /* Transición suave para el hover: sombra + desplazamiento hacia arriba */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+}
+
+/* Al pasar el cursor, la tarjeta sube ligeramente y aparece una sombra suave.
+   transform: translateY(-6px) la mueve 6px hacia arriba.
+   box-shadow añade una sombra difusa que da sensación de elevación. */
+.products:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* El círculo rojo también se agranda un poco al hacer hover,
+   como si el icono respirara. Detalle fino que se nota. */
+.products:hover .productLogo {
+    transform: scale(1.08);
+    transition: transform 0.3s ease;
+}
+
+.productLogo {
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: var(--red-color);
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.productLogo1 { background-image: url("imagenes/Icono1.png"); }
+.productLogo2 { background-image: url("imagenes/Icono2.png"); }
+.productLogo3 { background-image: url("imagenes/Icono3.png"); }
+.productLogo4 { background-image: url("imagenes/Icono4.png"); }
+
+.productText {
+    flex: 1;
+    width: 100%;
+}
+
+.products .subtitle {
+    font-size: var(--font-size-level3);
+    font-weight: 700;
+    text-align: center;
+    margin-top: 4px;
+    color: var(--gray-color);
+}
+
+.products .description-text {
+    margin-top: 10px;
+    text-align: center;
+    padding: 0;
+    color: var(--dark-text);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+
+/* ── ENLACE DE CONTACTO ──────────────────────────────────────────────────
+   El email y Google Maps. En el mockup el email es rojo y negrita.
+   ----------------------------------------------------------------------- */
+.contactLink {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.beigeMediumBlock .contactLink { color: var(--red-color); }
+.redMediumBlock   .contactLink { color: var(--white-color); font-weight: 700; }
+
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────
+   En el mockup: texto pequeño alineado a la IZQUIERDA, fondo oscuro.
+   ----------------------------------------------------------------------- */
+.footer {
+    font-family: "Open Sans", sans-serif;
+    background-color: var(--gray-color);
+    padding: 24px 32px;
+    text-align: left;
+}
+
+.footer p {
+    color: rgba(245, 240, 237, 0.6);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+
+/* ── ANIMACIONES DE ENTRADA AL HACER SCROLL ─────────────────────────────
+   Las secciones empiezan invisibles (opacity: 0) y desplazadas hacia abajo
+   (translateY 30px). Cuando el JS añade la clase .visible, el CSS las
+   anima suavemente a su posición y opacidad final.
+
+   El estado inicial (sin .visible) se aplica solo si JS está activo (.js),
+   así si el JS falla el contenido sigue siendo visible.
+   ----------------------------------------------------------------------- */
+
+/* Estado inicial: invisible y desplazado */
+.js .doubleSection,
+.js .breakfastBlock,
+.js .productSection,
+.js .products,
+.js .footer {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Estado final: visible. El JS añade esta clase con IntersectionObserver. */
+.js .doubleSection.visible,
+.js .breakfastBlock.visible,
+.js .productSection.visible,
+.js .products.visible,
+.js .footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Los productos tienen un retardo escalonado para que no aparezcan todos
+   a la vez, sino uno tras otro. Da sensación de profundidad y dinamismo. */
+.js .product2 { transition-delay: 0.1s; }
+.js .product3 { transition-delay: 0.2s; }
+.js .product4 { transition-delay: 0.3s; }
+
+
+/* ── ESTADOS DEL MENÚ (clases añadidas por JavaScript) ───────────────────
+   El JS solo se encarga de añadir/quitar clases. El CSS decide qué pasa.
+   Así separamos comportamiento (JS) de presentación (CSS). Buenas prácticas.
+   ----------------------------------------------------------------------- */
+
+/* Menú visible en móvil */
+.js .navegacionList.despliega-menu {
+    max-height: 300px;
+    width: 100%;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    z-index: 5;
+    background-color: var(--red-color);
+    text-align: center;
+}
+
+.navegacionList li a {
+    padding: 10px 0;
+}
+
+.navegacionList li a:hover {
+    background-color: var(--gray-color);
+    cursor: pointer;
+}
+
+/* El texto del hero baja para no quedar tapado por el menú */
+.headerText.despliega-menu {
+    margin-top: 40px;
+}
+
+/* Overlay oscuro detrás del menú abierto.
+   z-index 1: por encima del contenido, por debajo del menú (z-index 5)
+   y de la hamburguesa (z-index 10). */
+.body {
+    position: relative;
+}
+
+.body.despliega-menu::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+
+/* =====================================================================
+   RESPONSIVE — ESCRITORIO (min-width: 1024px)
+   Todo lo de arriba es mobile-first. A partir de aquí, escritorio.
+   ===================================================================== */
+@media screen and (min-width: 1024px) {
+
+    /* La hamburguesa desaparece en escritorio */
+    .burgerButton {
+        display: none;
+    }
+
+    /* Navbar en escritorio: logo izquierda, links derecha */
+    .encabezado {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+        padding: 0 48px;
+    }
+
+    .logo {
+        float: none;
+        width: 160px;
+        height: 50px;
+        flex-shrink: 0;
+    }
+
+    /* La nav ocupa el espacio restante para empujar el menú a la derecha */
+    .navigation {
+        float: none;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+        width: auto;
+    }
+
+    /* El menú desplegable se convierte en fila horizontal */
+    .navegacionList {
+        max-height: none;
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        width: auto;
+        position: static;
+        background-color: transparent;
+    }
+
+    /* Los items en fila con separación */
+    .navegacionList ul,
+    .menuList {
+        display: flex;
+        flex-direction: row;
+        gap: 48px;
+    }
+
+    .navegacionList li {
+        display: block;
+    }
+
+    .navegacionList a {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--white-color);
+        width: auto;
+        height: auto;
+        transition: opacity 0.2s;
+    }
+
+    .navegacionList a:hover {
+        opacity: 0.7;
+        background-color: transparent;
+    }
+
+    /* Enlace activo: el que corresponde a la sección visible en pantalla.
+       El JS añade esta clase dinámicamente con IntersectionObserver.
+       Subrayado fino debajo del texto como indicador visual sutil. */
+    .navegacionList a.activo {
+        opacity: 1;
+        border-bottom: 2px solid var(--white-color);
+        padding-bottom: 2px;
+    }
+
+    /* Secciones dobles en fila */
+    .doubleSection {
+        flex-direction: row;
+    }
+
+    .mediumBlock {
+        padding: 60px 52px;
+    }
+
+    /* En escritorio el bloque rojo recupera la alineación a la izquierda */
+    .redMediumBlock .subtitle          { text-align: left; }
+    .redMediumBlock .description-text  { text-align: left; }
+
+    /* Grid 2x2 para productos */
+    .productSection {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 48px;
+    }
+
+    /* En escritorio: icono a la izquierda, texto a la derecha en fila */
+    .products {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        margin: 28px 0;
+    }
+
+    .products .subtitle        { text-align: left; }
+    .products .description-text { text-align: left; }
+}
