@@ -1,0 +1,214 @@
+# ☕ Cafetería Oslo
+
+> _Hecho con mucho amor, paciencia y práctica._
+
+Proyecto web para una cafetería ficticia desarrollado como práctica de HTML, CSS y JavaScript.
+El objetivo es replicar el diseño dado en las especificaciones, con versión móvil y escritorio.
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+CafeOslo/
+├── 📄 index.html               → HTML principal (estructura de la web)
+├── 🎨 style.css                → Estilos CSS (diseño y responsive)
+├── ⚙️  cafeteria.js             → JavaScript (menú hamburguesa)
+├── 🚫 .gitignore               → Archivos que Git no sube al repo
+│
+├── 🖼️  imagenes/
+│   ├── Fondo1.jpg              → Imagen de fondo del hero
+│   ├── Fondo2.jpg              → Imagen de fondo de "Ven a desayunar"
+│   ├── Logo.png                → Logo Café Oslo
+│   └── Icono1-4.png            → Iconos de productos
+│
+├── 🔤 Tipografia/
+│   ├── OpenSans-Regular.ttf
+│   └── OpenSans-Bold.ttf
+│
+└── 📐 PNGs/
+    ├── Proyecto_final.png      → Mockup escritorio
+    └── Proyecto_final_movil.png→ Mockup móvil
+```
+
+---
+
+## 🚀 Cómo abrir el proyecto
+
+1. Descarga o clona el repositorio
+2. Abre `index.html` directamente en el navegador
+
+> ⚠️ **No abrir los archivos desde dentro de un ZIP.** Las imágenes no cargarán.
+
+---
+
+## 🎨 Especificaciones de diseño
+
+### Colores
+
+| 🟥 Nombre      | Variable CSS        | Hex       |
+|----------------|---------------------|-----------|
+| Rojo           | `--red-color`       | `#d03b40` |
+| Beige          | `--beige-color`     | `#ded6c0` |
+| Blanco         | `--white-color`     | `#f5f0ed` |
+| Gris oscuro    | `--gray-color`      | `#241d1b` |
+| Texto claro    | `--light-text`      | `#f5f0ed` |
+| Texto oscuro   | `--dark-text`       | `#3c3c3b` |
+
+### Tipografía
+
+- 🖋️ **Playfair Display** — Títulos principales (`h1`, `h2`). Elegante, con serifa.
+- 📝 **Open Sans** — Cuerpo de texto, menú, botones. Legible y moderna.
+- Cargadas desde **Google Fonts** + archivos `.ttf` locales como respaldo offline.
+
+### Tamaños de fuente
+
+| Nivel           | Variable CSS          | Tamaño |
+|-----------------|-----------------------|--------|
+| Encabezado 1    | `--font-size-level1`  | 44px   |
+| Encabezado 2    | `--font-size-level2`  | 28px   |
+| Encabezado 3    | `--font-size-level3`  | 24px   |
+| Cuerpo de texto | `--font-size-text`    | 16px   |
+| Botones         | `--font-size-buttons` | 14px   |
+
+---
+
+## 📋 Secciones de la web
+
+| # | Sección | Descripción |
+|---|---------|-------------|
+| 1 | **Hero** | Imagen de fondo (`Fondo1.jpg`) con logo, menú y título principal |
+| 2 | **Brunch / Fiestas** | Dos bloques en paralelo, rojo y beige |
+| 3 | **Ven a desayunar** | Imagen de fondo (`Fondo2.jpg`) con botón de acción |
+| 4 | **Productos** | Cuatro bloques con iconos: Pan, Tartas, Dulces, Ecológicos |
+| 5 | **Contacto / Ubicación** | Dos bloques en paralelo, beige y rojo |
+| 6 | **Footer** | Barra oscura con derechos reservados |
+
+---
+
+## ✅ Estado del proyecto
+
+### Ya hecho
+
+- [x] HTML semántico con todas las secciones
+- [x] CSS con reset de Meyer, variables CSS y diseño mobile-first
+- [x] Menú hamburguesa funcional con JavaScript
+- [x] Overlay oscuro al abrir el menú en móvil
+- [x] Scroll suave entre secciones
+- [x] Layout responsive: móvil (columna) → escritorio (grid 2x2, fila)
+- [x] Imágenes de fondo con overlay para legibilidad del texto
+- [x] `.gitignore` con exclusiones para macOS, Windows y editores
+- [x] `aria-label` y `aria-expanded` básicos (accesibilidad)
+
+---
+
+## 🗺️ To-do: Hoja de ruta hacia una web profesional
+
+> Las tareas están ordenadas por prioridad. Empezad por arriba. 👆
+
+---
+
+### 🔴 PRIORIDAD ALTA — Arreglos visuales que se notan mucho
+
+- [ ] **Corregir espaciado entre iconos y texto en la sección de productos**
+  - En móvil, los iconos y sus títulos tienen demasiado espacio entre ellos (`margin: 40px auto`).
+  - Reducir a `margin: 24px auto` y añadir `padding: 0 16px` en `.products` para que no queden pegados a los bordes de pantalla.
+
+- [ ] **Centrar correctamente los textos del hero**
+  - El `h1` y el párrafo del hero no tienen `max-width`, en pantallas muy anchas el texto se estira demasiado.
+  - Añadir `max-width: 700px; margin-left: auto; margin-right: auto;` al contenedor `.headerText`.
+
+- [ ] **Arreglar el padding lateral de las secciones dobles (Brunch / Fiestas)**
+  - En móvil, los `.mediumBlock` no tienen padding lateral suficiente y el texto llega demasiado cerca del borde.
+  - Cambiar a `padding: 50px 32px` en móvil y `padding: 60px 52px` en escritorio.
+
+- [ ] **Igualar la altura de los dos bloques en secciones dobles**
+  - Si un bloque tiene más texto que el otro, quedan con alturas distintas y se ve raro.
+  - Añadir `align-items: stretch` en `.doubleSection` para que siempre tengan la misma altura.
+
+- [ ] **Espaciado inferior de la sección de productos**
+  - El último producto queda muy pegado al footer sin margen de respiro.
+  - Añadir `padding-bottom: 60px` en `.productSection`.
+
+---
+
+### 🟠 PRIORIDAD MEDIA — Funcionalidad y experiencia de usuario
+
+- [ ] **Navbar con efecto scroll**
+  - Cuando el usuario baja, la navbar debería ponerse con fondo oscuro semitransparente para que los enlaces sigan siendo legibles.
+  - Implementar con JS: `window.addEventListener('scroll', ...)` que añada una clase CSS con `background-color` y `transition`.
+
+- [ ] **Resaltar el enlace activo en la navbar**
+  - El enlace de la sección que el usuario está viendo debería estar marcado visualmente.
+  - Implementar con `IntersectionObserver` en JS, que detecta qué sección está en pantalla y añade una clase `.activo` al enlace correspondiente.
+
+- [ ] **Enlace real a Google Maps**
+  - Sustituir `https://maps.google.com` por la URL real de la ubicación del café.
+
+- [ ] **Favicon**
+  - Añadir `<link rel="icon" href="imagenes/Logo.png">` en el `<head>` del HTML.
+  - Idealmente crear un `.png` cuadrado de 32×32px para que se vea nítido en la pestaña.
+
+- [ ] **Animaciones de entrada al hacer scroll**
+  - Las secciones deberían aparecer con un efecto `fadeUp` al entrar en la pantalla.
+  - Implementar con `IntersectionObserver` en JS + `@keyframes fadeUp` ya definido en el CSS.
+
+---
+
+### 🟡 PRIORIDAD BAJA — Pulido final y profesionalismo
+
+- [ ] **Hover en tarjetas de productos**
+  - Al pasar el cursor por encima, una sombra suave y un ligero desplazamiento hacia arriba.
+  - CSS: `box-shadow: 0 8px 24px rgba(0,0,0,0.1)` y `transform: translateY(-4px)` con `transition: 0.3s`.
+
+- [ ] **Animación del botón hamburguesa**
+  - Las tres rayitas deberían convertirse en una X al abrirse el menú.
+  - Implementar con `transform: rotate()` en CSS sobre las `.burgerLine` cuando el botón tenga la clase activa.
+
+- [ ] **Activar tipografías locales `.ttf` como fallback**
+  - Descomentar los `@font-face` en el CSS y apuntar a la carpeta `Tipografia/`.
+  - Así la web carga las fuentes aunque no haya conexión a internet.
+
+- [ ] **`max-width` global para pantallas muy grandes**
+  - En monitores de más de 1440px el contenido se estira demasiado.
+  - Envolver el contenido en un `<div class="container">` con `max-width: 1280px; margin: 0 auto`.
+
+- [ ] **Mejorar el footer**
+  - Añadir iconos de redes sociales (Instagram, Facebook) con SVGs.
+  - Añadir un segundo nivel con links legales: Aviso Legal, Política de Privacidad, Cookies.
+
+- [ ] **Optimización de imágenes**
+  - Convertir `Fondo1.jpg` y `Fondo2.jpg` a formato `.webp` (mismo aspecto, menos peso, más velocidad).
+  - Usar `<picture>` en HTML para servir `.webp` a navegadores modernos y `.jpg` como fallback.
+
+---
+
+### 🔵 EXTRA — Para nota
+
+- [ ] **Meta tags para SEO y redes sociales**
+  - Añadir en el `<head>`: `<meta name="description">`, `og:title`, `og:image`, etc.
+  - Si alguien comparte el link en WhatsApp o Twitter, aparece una preview con imagen bonita en vez de texto seco.
+
+- [ ] **Formulario de contacto real**
+  - Sustituir el `mailto:` por un formulario HTML (Nombre, Email, Mensaje).
+  - Conectar con [Formspree](https://formspree.io) para recibir los mensajes por email sin necesitar backend.
+
+- [ ] **Modo oscuro**
+  - Implementar con `@media (prefers-color-scheme: dark)` en CSS + botón de toggle manual.
+
+- [ ] **Página 404 personalizada**
+  - Crear un `404.html` con el estilo del proyecto para cuando alguien entra en una URL que no existe.
+
+---
+
+## 🛠️ Tecnologías
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?style=flat&logo=google&logoColor=white)
+
+- **HTML5** — Estructura semántica
+- **CSS3** — Flexbox, Grid, variables CSS, media queries, mobile-first
+- **JavaScript ES6+** — Menú hamburguesa, eventos, DOM
+- **Google Fonts** — Playfair Display + Open Sans

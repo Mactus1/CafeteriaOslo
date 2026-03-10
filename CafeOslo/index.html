@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Esta etiqueta es CLAVE para que el diseño responsive funcione en móvil.
+         Sin ella, el móvil se comporta como si fuera una pantalla de escritorio y
+         todo se ve microscópico. No la toques nunca. Nunca. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Café Oslo</title>
+
+    <!-- Cargamos las fuentes desde Google Fonts.
+         Open Sans: para el texto del cuerpo (legible, moderna, nuestra amiga).
+         Playfair Display: para títulos grandes (elegante, con serifa, le da carácter). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+    <!-- Nuestro CSS. Un solo archivo, todo ordenado. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="body">
+
+    <!-- =====================================================================
+         HEADER / HERO
+         La primera sección que ve el usuario. Fondo con imagen, logo y nav.
+         ===================================================================== -->
+    <header class="header block" id="inicio">
+
+        <!-- BARRA DE NAVEGACIÓN
+             En móvil: logo a la izquierda + botón hamburguesa a la derecha.
+             En escritorio: el menú se despliega horizontal con flexbox (ver CSS). -->
+        <div class="encabezado">
+
+            <!-- El logo es una imagen de fondo en el CSS (imagenes/Logo.png).
+                 Si algún día cambian el logo, solo hay que tocar el CSS. -->
+            <div class="logo" role="img" aria-label="Logo Café Oslo"></div>
+
+            <nav class="navigation">
+                <!-- Botón hamburguesa: solo visible en móvil.
+                     El JS lo usa para desplegar/ocultar el menú. -->
+                <button class="burgerButton" id="enlaceMenu" aria-label="Abrir menú" aria-expanded="false">
+                    <span class="burgerLine"></span>
+                    <span class="burgerLine"></span>
+                    <span class="burgerLine"></span>
+                </button>
+
+                <!-- Lista del menú de navegación.
+                     En móvil empieza oculta (max-height: 0) y se despliega con JS.
+                     En escritorio siempre visible en fila (ver media query). -->
+                <div id="menu" class="navegacionList" role="navigation" aria-label="Menú principal">
+                    <ul class="menuList">
+                        <li><a href="#inicio"           class="opcionMenu">Inicio</a></li>
+                        <li><a href="#espacio"          class="opcionMenu">El Espacio</a></li>
+                        <li><a href="#agendaReservacion" class="opcionMenu">Reservas</a></li>
+                        <li><a href="#productos"        class="opcionMenu">Productos</a></li>
+                        <li><a href="#contacto"         class="opcionMenu">Contáctanos</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Texto principal del hero.
+             La clase "headerText" la usa el JS para bajarla cuando se abre el menú
+             y no quede tapada por él. Pequeño detalle, gran diferencia. -->
+        <div class="headerText block">
+            <h1>Recién hecho,<br>todos los días</h1>
+            <!-- Separador decorativo. El aria-hidden="true" le dice a los lectores
+                 de pantalla que lo ignoren. Es solo estético, no aporta info. -->
+            <div class="section-divider" aria-hidden="true"></div>
+            <p class="description-text headerDescriptionText">
+                Chocolate cake pie candy canes. Bonbon sweet bonbon jelly beans jelly-o.
+                I love danish macaroon ice cream. Bonbon sweet bonbon jelly beans jelly-o I love lollipop.
+            </p>
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================================
+         SECCIÓN DOBLE: BRUNCH + FIESTAS
+         Dos bloques en paralelo con colores invertidos (rojo / beige).
+         En móvil se apilan uno encima del otro gracias al CSS responsive.
+         ===================================================================== -->
+    <section class="doubleSection" id="espacio">
+        <div class="mediumBlock redMediumBlock block">
+            <h2 class="subtitle">Ven al brunch de los domingos</h2>
+            <p class="description-text">
+                Sesame snaps icing chocolate bar. I love donut powder sesame snaps.
+                Jelly-o topping caramels. Sugar plum I love gummi bears.
+            </p>
+        </div>
+        <div class="mediumBlock beigeMediumBlock block">
+            <h2 class="subtitle">Celebra tus fiestas con nosotros</h2>
+            <p class="description-text">
+                Bonbon sweet bonbon jelly beans jelly-o I love lollipop.
+                Cookie sesame snaps bear claw. Cake dragée danish.
+                Powder I love liquorice macaroon.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- =====================================================================
+         VEN A DESAYUNAR
+         Sección con imagen de fondo (Fondo2.jpg) y botón de acción.
+         El id "agendaReservacion" es al que enlaza el menú de "Reservas".
+         ===================================================================== -->
+    <section class="breakfastBlock block" id="agendaReservacion">
+        <h2 class="subtitle">Ven a desayunar</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+        <p class="description-text">
+            Bonbon topping I love sweet roll I love candy icing chocolate jelly.
+            Pie soufflé sweet. Apple pie bonbon caramels powder.
+        </p>
+        <!-- El botón lleva a la sección de productos con scroll suave (ver CSS: scroll-behavior). -->
+        <a href="#productos" class="button">Descubre nuestros productos</a>
+    </section>
+
+
+    <!-- =====================================================================
+         PRODUCTOS
+         Cuatro productos con icono + título + descripción.
+         En móvil en columna, en escritorio en grid 2x2 (ver CSS).
+         ===================================================================== -->
+    <section class="productSection block" id="productos">
+
+        <div class="products product1 block">
+            <!-- El icono es un div con imagen de fondo definida en CSS (.productLogo1).
+                 Así separamos contenido (HTML) de presentación (CSS). Buenas prácticas 👌 -->
+            <div class="productLogo productLogo1" role="img" aria-label="Icono pan"></div>
+            <h2 class="subtitle">Pan recién hecho</h2>
+            <p class="description-text">
+                Cupcake danish I love halvah bonbon icing donut. Sweet caramels gingerbread
+                bear claw jujubes chocolate cake pudding sesame snaps bonbon.
+                Chocolate cake wafer pudding muffin wafer sweet roll I love chupa chups.
+            </p>
+        </div>
+
+        <div class="products product2 block">
+            <div class="productLogo productLogo2" role="img" aria-label="Icono tartas"></div>
+            <h2 class="subtitle">Tartas para cada día</h2>
+            <p class="description-text">
+                Cookie cake jelly beans chocolate cake carrot cake croissant icing.
+                Caramels liquorice chocolate sesame snaps sugar plum I love bonbon.
+                I love I love halvah.
+            </p>
+        </div>
+
+        <div class="products product3 block">
+            <div class="productLogo productLogo3" role="img" aria-label="Icono dulces"></div>
+            <h2 class="subtitle">Prueba nuestros dulces</h2>
+            <p class="description-text">
+                Caramels liquorice sesame snaps sugar plum I love bonbon.
+                I love I love halvah. I love donut tiramisu pudding cotton candy liquorice.
+                Jelly beans chocolate brownie gummi bears dragée jelly-o.
+            </p>
+        </div>
+
+        <div class="products product4 block">
+            <div class="productLogo productLogo4" role="img" aria-label="Icono ecológico"></div>
+            <h2 class="subtitle">Ingredientes ecológicos</h2>
+            <p class="description-text">
+                Carrot cake fruitcake cheesecake muffin lollipop croissant dessert halvah.
+                Cake pie bear claw marshmallow marzipan cake.
+                Carrot cake I love cotton candy ice cream chupa chups donut.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================================
+         CONTACTO + UBICACIÓN
+         Misma estructura de doble bloque que la sección de arriba,
+         pero con los colores intercambiados (beige / rojo).
+         ===================================================================== -->
+    <section class="doubleSection" id="contacto">
+        <div class="mediumBlock beigeMediumBlock block">
+            <h2 class="subtitle">Contacta con nosotros</h2>
+            <p class="description-text">
+                Si quieres hacer una reserva, tienes alguna sugerencia o
+                simplemente quieres saludar, escríbenos a:<br><br>
+                <!-- mailto: abre directamente el gestor de correo del usuario. Detalle fino. -->
+                <a class="contactLink" href="mailto:cafeoslo@cafeoslo.es">cafeoslo@cafeoslo.es</a>
+            </p>
+        </div>
+        <div class="mediumBlock redMediumBlock block">
+            <h2 class="subtitle">¿Sabes dónde estamos?</h2>
+            <p class="description-text">
+                C/ Mayor, 15<br>
+                69000 Barcelona<br><br>
+                <!-- target="_blank" abre el mapa en una pestaña nueva.
+                     rel="noopener noreferrer" es seguridad básica cuando usas _blank. -->
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="contactLink">
+                    Ver en Google Maps
+                </a>
+            </p>
+        </div>
+    </section>
+
+
+    <!-- =====================================================================
+         FOOTER
+         Barra oscura de cierre. Simple, limpia, con derechos reservados.
+         ===================================================================== -->
+    <footer class="footer">
+        <p>
+            &copy; 2026 Café Oslo &mdash; Todos los derechos reservados
+        </p>
+    </footer>
+
+
+    <!-- El script va AL FINAL del body, no en el <head>.
+         Así el HTML ya está cargado cuando el JS intenta encontrar los elementos.
+         Si lo pones arriba, el JS busca botones que aún no existen. Caos. -->
+    <script src="cafeteria.js"></script>
+
+</body>
+</html>

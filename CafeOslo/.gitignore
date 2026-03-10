@@ -1,0 +1,32 @@
+# =====================================================================
+# .gitignore — Café Oslo
+# Lista de archivos que Git ignorará (no subirá al repositorio).
+# =====================================================================
+
+# ── macOS ─────────────────────────────────────────────────────────────
+# Estos archivos los genera el sistema operativo de Apple automáticamente.
+# No aportan nada al proyecto y ensucian el repo. Fuera.
+
+.DS_Store           # Metadatos de carpetas del Finder (posición de iconos, etc.)
+.DS_Store?          # Variantes con sufijo
+._*                 # Archivos de metadatos extendidos (los ._Fondo1.jpg y similares)
+__MACOSX/           # Carpeta fantasma que aparece al comprimir desde Mac
+.AppleDouble
+.LSOverride
+Icon?               # Icono personalizado de carpeta
+
+# ── Windows ───────────────────────────────────────────────────────────
+Thumbs.db           # Caché de miniaturas del Explorador de Windows
+ehthumbs.db
+Desktop.ini
+
+# ── Editores de código ─────────────────────────────────────────────────
+.vscode/            # Configuración de Visual Studio Code (personal, no del proyecto)
+.idea/              # Configuración de WebStorm / IntelliJ
+*.sublime-project
+*.sublime-workspace
+
+# ── Archivos de sistema ────────────────────────────────────────────────
+*.log               # Archivos de registro
+*.tmp               # Archivos temporales
+*.swp               # Archivos de swap de Vim (sí, hay gente que usa Vim)
