@@ -107,6 +107,8 @@ CafeOslo/
 - [x] Navbar fija con efecto scroll (transparente → fondo oscuro al bajar 50px)
 - [x] Enlace activo en navbar según sección visible (IntersectionObserver)
 - [x] Separación y espaciado correctos entre links de la navbar en escritorio
+- [x] Animaciones de entrada al hacer scroll (fadeUp con IntersectionObserver)
+- [x] Hover en tarjetas de productos (sube + sombra + icono escala)
 - [x] Navbar con links correctos: El Espacio / Productos / Ofertas / Reservas / Contacto
 - [x] Iconos de productos con círculo rojo de fondo, layout icono izquierda + texto derecha
 - [x] Bloque rojo de secciones dobles con texto alineado a la izquierda
@@ -140,17 +142,11 @@ CafeOslo/
   - Añadir `<link rel="icon" href="imagenes/Logo.png">` en el `<head>` del HTML.
   - Idealmente crear un `.png` cuadrado de 32×32px para que se vea nítido en la pestaña.
 
-- [ ] **Animaciones de entrada al hacer scroll**
-  - Las secciones deberían aparecer con un efecto `fadeUp` al entrar en la pantalla.
-  - Implementar con `IntersectionObserver` en JS + `@keyframes fadeUp` ya definido en el CSS.
 
 ---
 
 ### 🟡 PRIORIDAD BAJA — Pulido final y profesionalismo
 
-- [ ] **Hover en tarjetas de productos**
-  - Al pasar el cursor por encima, una sombra suave y un ligero desplazamiento hacia arriba.
-  - CSS: `box-shadow: 0 8px 24px rgba(0,0,0,0.1)` y `transform: translateY(-4px)` con `transition: 0.3s`.
 
 - [ ] **Animación del botón hamburguesa**
   - Las tres rayitas deberían convertirse en una X al abrirse el menú.
