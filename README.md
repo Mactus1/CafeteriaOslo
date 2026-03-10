@@ -106,6 +106,7 @@ CafeOslo/
 - [x] Productos en móvil: icono centrado arriba, texto centrado abajo (`flex-direction: column`)
 - [x] Navbar fija con efecto scroll (transparente → fondo oscuro al bajar 50px)
 - [x] Enlace activo en navbar según sección visible (IntersectionObserver)
+- [x] Separación y espaciado correctos entre links de la navbar en escritorio
 - [x] Navbar con links correctos: El Espacio / Productos / Ofertas / Reservas / Contacto
 - [x] Iconos de productos con círculo rojo de fondo, layout icono izquierda + texto derecha
 - [x] Bloque rojo de secciones dobles con texto alineado a la izquierda

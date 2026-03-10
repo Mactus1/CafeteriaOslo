@@ -530,7 +530,7 @@ h1 {
         display: none;
     }
 
-    /* La barra de navegación usa flexbox: logo izq, menú der */
+    /* Navbar en escritorio: logo izquierda, links derecha */
     .encabezado {
         display: flex;
         align-items: center;
@@ -541,34 +541,49 @@ h1 {
 
     .logo {
         float: none;
-        width: auto;
-        min-width: 160px;
+        width: 160px;
         height: 50px;
+        flex-shrink: 0;
     }
 
+    /* La nav ocupa el espacio restante para empujar el menú a la derecha */
     .navigation {
         float: none;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
         width: auto;
-        height: auto;
     }
 
-    /* Menú horizontal siempre visible */
+    /* El menú desplegable se convierte en fila horizontal */
     .navegacionList {
         max-height: none;
         overflow: visible;
         display: flex;
         align-items: center;
+        width: auto;
+        position: static;
+        background-color: transparent;
+    }
+
+    /* Los items en fila con separación */
+    .navegacionList ul,
+    .menuList {
+        display: flex;
+        flex-direction: row;
         gap: 48px;
     }
 
     .navegacionList li {
-        display: inline-block;
+        display: block;
     }
 
     .navegacionList a {
         font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 1.5px;
+        letter-spacing: 2.5px;
         text-transform: uppercase;
         color: var(--white-color);
         width: auto;
