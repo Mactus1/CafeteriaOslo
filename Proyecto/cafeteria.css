@@ -79,10 +79,25 @@ table {
 .header{
     width: 100%;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
 
     background-position: center top;
     background-image: url("imagenes/Fondo1.jpg");
     background-size: cover;
+}
+/*Agrega capa negra para las imagenes*/
+.backgroundImagenes::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+/*Texto en blanco sin afectar*/
+.backgroundImagenes > *{
+    position: relative;
+    z-index: 1;
 }
 .encabezado{
     height: 100px;
@@ -109,34 +124,38 @@ table {
     }
 }
 .burgerButton{
-    width: 65px;
-    height: 65px;
+    width: 56px;
+    height: 56px;
     text-align: center;
     
     background-color: var(--red-color);
     border-radius: 10px;
-    padding-top: 6px;
+    padding-top: 1.5px;
     position: fixed;
-    z-index: 3;
+    z-index: 10000;
     cursor: pointer;
-    right: 0;
+    right: 30px;
+    top: 25px;
 }
 .burgerLine{
     display: inline-block;
     width: 70%;
-    height: 7px;
+    height: 6px;
 
     background-color: var(--white-color);
     border-radius: 10px;
 }
 h1{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Playfair Display", serif;
     text-align: center;
     font-size: var(--font-size-level1);
     color: var(--white-color);
     margin: 100px auto 0;
     padding: 0 5px;
-    font-weight: 700;
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 .section-divider{
     height: 2px;
@@ -180,6 +199,7 @@ h1{
     color: var(--red-color);
 }
 .breakfastBlock{
+    position: relative;
     min-height: 70vh;
     background-image: url("imagenes/Fondo2.jpg");
     color: var(--white-color);
@@ -293,7 +313,7 @@ h1{
     }
 @media screen and (max-width: 768px){
     .js .navegacionList.despliega-menu{
-        z-index: 2;
+        z-index: 9999;
         width: 100%;
         max-height: 300px;
         position: fixed;
@@ -310,9 +330,7 @@ h1{
         cursor: pointer;
         background-color: var(--gray-color);
     }
-    .headerText.despliega-menu{
-        margin-top: 35px;
-    }
+    
     .body{
         position: relative;
     }
