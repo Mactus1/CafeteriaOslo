@@ -120,7 +120,7 @@ table {
 }
 @media screen and (min-width: 360px){
     .logo{
-        background-size: 180px;
+        background-size: 170px;
     }
 }
 .burgerButton{
@@ -183,12 +183,14 @@ h1{
     padding-top: 1px;
 }
 .subtitle{
-    font-family: "Open Sans", sans-serif;
+    font-family: "Playfair Display", serif;
     margin-top: 50px;
     font-size: var(--font-size-level2);
     text-align: center;
     font-weight: 700;
-    
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 .redMediumBlock{
     background-color: var(--red-color);
@@ -255,7 +257,7 @@ h1{
 }
 .products .subtitle{
     margin-top: 15px;
-    text-align: justify;
+    text-align: center;
 }
 .products .description-text{
     margin-top: 10px;
