@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <title>Cafeteria Oslo</title>
@@ -11,50 +11,51 @@
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
     </head>
     <body class="body">
-        <div class="burgerButton" id="enlaceMenu">
-            <span class="burgerLine"></span>
-            <span class="burgerLine"></span>
-            <span class="burgerLine"></span>
-        </div>
-        <div class="navigation"> 
-        <!--Menu a desplegar-->
-        <div id="menu" class="navegacionList">
-        <ul class="menuList">
-                            <li>
-                                <a href="#inicio" class="opcionMenu">
-                                    Inicio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="opcionMenu">
-                                    Perfil
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#agendaReservacion" class="opcionMenu">
-                                    Reservas
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#productos" class="opcionMenu">
-                                    Productos
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#contacto" class="opcionMenu">
-                                    Contáctanos
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-        <div class="header block backgroundImagenes" id="inicio">
+        <nav class="navigation" aria-label="Navegacion principal">
+            <div class="burgerButton" id="enlaceMenu" aria-label="Abrir menu">
+                <span class="burgerLine"></span>
+                <span class="burgerLine"></span>
+                <span class="burgerLine"></span>
+            </div>
+
+            <div id="menu" class="navegacionList">
+                <ul class="menuList">
+                    <li>
+                        <a href="#inicio" class="opcionMenu">
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="opcionMenu">
+                            Perfil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#agendaReservacion" class="opcionMenu">
+                            Reservas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#productos" class="opcionMenu">
+                            Productos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contacto" class="opcionMenu">
+                            Contactanos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <header class="header block backgroundImagenes" id="inicio">
             <div class="encabezado">
                 <div class="logo"></div>
             </div>
-            
+
             <div class="headerText block">
-                <h1>Recién hecho, <br>todos los días</h1>
+                <h1>Recien hecho, <br>todos los dias</h1>
                 <div class="section-divider" aria-hidden="true"></div>
                 <p class="description-text headerDescriptionText">
                     Lorem ipsum dolor, sit
@@ -64,117 +65,120 @@
                     illum culpa ab. Soluta mollitia molestias hic!
                 </p>
             </div>
-        </div>
-        <!--Double color section-->
-        <section>
-            <div class="mediumBlock redMediumBlock block">
-                <h2 class="subtitle">Ven al Brunch de los domingos</h2>
+        </header>
+
+        <main>
+            <section aria-label="Presentacion principal">
+                <div class="mediumBlock redMediumBlock block">
+                    <h2 class="subtitle">Ven al Brunch de los domingos</h2>
+                    <p class="description-text">
+                        Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Quos vero, quod officia
+                        sed nemo eius recusandae nobis.
+                        Eos dolorem ad distinctio quos,
+                        aliquid ipsa maxime vel quasi. Eligendi, veniam
+                        ex!
+                    </p>
+                </div>
+
+                <div class="mediumBlock beigeMediumBlock block">
+                    <h2 class="subtitle">Celebra tus fiestas con nosotros</h2>
+                    <p class="description-text">
+                        Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Quos vero, quod officia
+                        sed nemo eius recusandae nobis.
+                        Eos dolorem ad distinctio quos,
+                        aliquid ipsa maxime vel quasi. Eligendi, veniam
+                        ex!
+                    </p>
+                </div>
+            </section>
+
+            <section class="breakfastBlock block backgroundImagenes" id="agendaReservacion">
+                <h2 class="subtitle">Ven a desayunar</h2>
+                <div class="section-divider" aria-hidden="true"></div>
                 <p class="description-text">
                     Lorem ipsum dolor sit amet consectetur,
                     adipisicing elit. Quos vero, quod officia
                     sed nemo eius recusandae nobis.
-                    Eos dolorem ad distinctio quos, 
+                    Eos dolorem ad distinctio quos,
                     aliquid ipsa maxime vel quasi. Eligendi, veniam
                     ex!
                 </p>
-            </div>
-            <div class="mediumBlock beigeMediumBlock block">
-                <h2 class="subtitle">Celebra tus fiestas con nosotros</h2>
-                <p class="description-text">
-                    Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Quos vero, quod officia
-                    sed nemo eius recusandae nobis.
-                    Eos dolorem ad distinctio quos, 
-                    aliquid ipsa maxime vel quasi. Eligendi, veniam
-                    ex!
-                </p>
-            </div>
-        </section>
-        <!--Ven a desayunar section-->
-        <section class="breakfastBlock block backgroundImagenes" id="agendaReservacion">
-            <h2 class="subtitle">Ven a desayunar</h2>
-            <div class="section-divider" aria-hidden="true"></div>
-            <p class="description-text">
-                Lorem ipsum dolor sit amet consectetur,
-                adipisicing elit. Quos vero, quod officia
-                sed nemo eius recusandae nobis.
-                Eos dolorem ad distinctio quos, 
-                aliquid ipsa maxime vel quasi. Eligendi, veniam
-                ex!
-            </p>
-            <div class="button">Agenda tu reservación</div>
-        </section>
-        <!--Products-->
-        <section class="productSection block" id="productos">
-            <!--product logo-->
-            <div class="products product1 block">
-                <div class="productLogo productLogo1"></div>
-                <h2 class="subtitle">Pan recién hecho</h2>
-                <p class="description-text">
-                    Lorem, ipsum dolor sit amet consectetur
-                    adipisicing elit. Sit, placeat earum animi
-                    dolore, sint, eaque officia totam dolorum
-                    dolorem at est quos aut esse repudiandae tempora?
-                    Vero quidem magnam ipsum.
-                </p>
-            </div>
+                <div class="button">Agenda tu reservacion</div>
+            </section>
 
-            <div class="products product2 block">
-                <div class="productLogo productLogo2"></div>
-                <h2 class="subtitle">Tartas para cada día</h2>
-                <p class="description-text">
-                    Lorem, ipsum dolor sit amet consectetur
-                    adipisicing elit. Sit, placeat earum animi
-                    dolore, sint, eaque officia totam dolorum
-                    dolorem at est quos aut esse repudiandae tempora?
-                    Vero quidem magnam ipsum.
-                </p>
-            </div>
+            <section class="productSection block" id="productos">
+                <article class="products product1 block">
+                    <div class="productLogo productLogo1"></div>
+                    <h2 class="subtitle">Pan recien hecho</h2>
+                    <p class="description-text">
+                        Lorem, ipsum dolor sit amet consectetur
+                        adipisicing elit. Sit, placeat earum animi
+                        dolore, sint, eaque officia totam dolorum
+                        dolorem at est quos aut esse repudiandae tempora?
+                        Vero quidem magnam ipsum.
+                    </p>
+                </article>
 
-            <div class="products product3 block">
-                <div class="productLogo productLogo3"></div>
-                <h2 class="subtitle">Prueba nuestros dulces</h2>
-                <p class="description-text">
-                    Lorem, ipsum dolor sit amet consectetur
-                    adipisicing elit. Sit, placeat earum animi
-                    dolore, sint, eaque officia totam dolorum
-                    dolorem at est quos aut esse repudiandae tempora?
-                    Vero quidem magnam ipsum.
-                </p>
-            </div>
+                <article class="products product2 block">
+                    <div class="productLogo productLogo2"></div>
+                    <h2 class="subtitle">Tartas para cada dia</h2>
+                    <p class="description-text">
+                        Lorem, ipsum dolor sit amet consectetur
+                        adipisicing elit. Sit, placeat earum animi
+                        dolore, sint, eaque officia totam dolorum
+                        dolorem at est quos aut esse repudiandae tempora?
+                        Vero quidem magnam ipsum.
+                    </p>
+                </article>
 
-            <div class="products product4 block">
-                <div class="productLogo productLogo4"></div>
-                <h2 class="subtitle">Ingredientes ecólogicos</h2>
-                <p class="description-text">
-                    Lorem, ipsum dolor sit amet consectetur
-                    adipisicing elit. Sit, placeat earum animi
-                    dolore, sint, eaque officia totam dolorum
-                    dolorem at est quos aut esse repudiandae tempora?
-                    Vero quidem magnam ipsum.
-                </p>
-            </div>
-        </section>
-         <section>
-            <div class="mediumBlock beigeMediumBlock block" id="contacto">
-                <h2 class="subtitle">Contacta con nosotros</h2>
-                <p class="description-text">
-                    Si quieres hacer una reserva, tienes alguna
-                    sugerencia o simplemente quieres
-                    saludar, escríbenos a: <br>
-                    <a class="contactLink" href="mailto: juaneshurtatiz1@gmail.com">cafeoslo@cafeoslo.es</a>
-                </p>
-            </div>
+                <article class="products product3 block">
+                    <div class="productLogo productLogo3"></div>
+                    <h2 class="subtitle">Prueba nuestros dulces</h2>
+                    <p class="description-text">
+                        Lorem, ipsum dolor sit amet consectetur
+                        adipisicing elit. Sit, placeat earum animi
+                        dolore, sint, eaque officia totam dolorum
+                        dolorem at est quos aut esse repudiandae tempora?
+                        Vero quidem magnam ipsum.
+                    </p>
+                </article>
 
-            <div class="mediumBlock redMediumBlock block">
-                <h2 class="subtitle">¿Sabes dónde estamos?</h2>
-                <p class="description-text">
-                    580 rue Nicolet <br>
-                    Montréal, Québec <br>
-                    <span style="font-weight: 750">(Google Maps)</span>
-                </p>
-            </div>
-        </section>
+                <article class="products product4 block">
+                    <div class="productLogo productLogo4"></div>
+                    <h2 class="subtitle">Ingredientes ecologicos</h2>
+                    <p class="description-text">
+                        Lorem, ipsum dolor sit amet consectetur
+                        adipisicing elit. Sit, placeat earum animi
+                        dolore, sint, eaque officia totam dolorum
+                        dolorem at est quos aut esse repudiandae tempora?
+                        Vero quidem magnam ipsum.
+                    </p>
+                </article>
+            </section>
+
+            <section aria-label="Informacion de contacto">
+                <div class="mediumBlock beigeMediumBlock block" id="contacto">
+                    <h2 class="subtitle">Contacta con nosotros</h2>
+                    <p class="description-text">
+                        Si quieres hacer una reserva, tienes alguna
+                        sugerencia o simplemente quieres
+                        saludar, escribenos a: <br>
+                        <a class="contactLink" href="mailto:juaneshurtatiz1@gmail.com">cafeoslo@cafeoslo.es</a>
+                    </p>
+                </div>
+
+                <div class="mediumBlock redMediumBlock block">
+                    <h2 class="subtitle">Sabes donde estamos?</h2>
+                    <p class="description-text">
+                        580 rue Nicolet <br>
+                        Montreal, Quebec <br>
+                        <span style="font-weight: 750">(Google Maps)</span>
+                    </p>
+                </div>
+            </section>
+        </main>
 
         <footer class="footer">
             <p>
@@ -182,6 +186,7 @@
                 Todos los derechos reservados
             </p>
         </footer>
+
         <script src="cafeteria.js"></script>
     </body>
 </html>
